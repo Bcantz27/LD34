@@ -1,0 +1,640 @@
+fileFormatVersion: 2
+guid: c6537d7dc4c3ba940b5837455a328550
+timeCreated: 1449896519
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Npc_0
+    21300002: Npc_1
+    21300004: Npc_2
+    21300006: Npc_3
+    21300008: Npc_4
+    21300010: Npc_5
+    21300012: Npc_6
+    21300014: Npc_7
+    21300016: Npc_8
+    21300018: Npc_9
+    21300020: Npc_10
+    21300022: Npc_11
+    21300024: Npc_12
+    21300026: Npc_13
+    21300028: Npc_14
+    21300030: Npc_15
+    21300032: Npc_16
+    21300034: Npc_17
+    21300036: Npc_18
+    21300038: Npc_19
+    21300040: Npc_20
+    21300042: Npc_21
+    21300044: Npc_22
+    21300046: Npc_23
+    21300048: Npc_24
+    21300050: Npc_25
+    21300052: Npc_26
+    21300054: Npc_27
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Npc_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 838
+        width: 45
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8.5, y: 61}
+        - {x: -17.5, y: 53}
+        - {x: -17.5, y: 14}
+        - {x: -0.5, y: -61}
+        - {x: 18.5, y: -61}
+        - {x: 22.5, y: -48}
+        - {x: 22.5, y: 60}
+        - {x: 19.5, y: 61}
+      - - {x: -22.5, y: 46}
+        - {x: -22.5, y: 39}
+        - {x: -19.5, y: 39}
+        - {x: -17.5, y: 41}
+        - {x: -17.5, y: 44}
+        - {x: -19.5, y: 46}
+    - name: Npc_1
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 969
+        width: 55
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27.5, y: 62}
+        - {x: -27.5, y: -60}
+        - {x: -26.5, y: -62}
+        - {x: 27.5, y: -62}
+        - {x: 27.5, y: 51}
+        - {x: 25.5, y: 62}
+    - name: Npc_2
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 838
+        width: 74
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 13.5}
+        - {x: -3, y: 26.5}
+        - {x: 16, y: -61.5}
+        - {x: 37, y: -61.5}
+        - {x: 37, y: 61.5}
+        - {x: -35, y: 61.5}
+        - {x: -37, y: 57.5}
+        - {x: -37, y: 5.5}
+        - {x: -34, y: -22.5}
+        - {x: -24, y: -61.5}
+        - {x: -8, y: -61.5}
+        - {x: 6, y: -22.5}
+        - {x: -2, y: 5.5}
+        - {x: -4, y: 10.5}
+    - name: Npc_3
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 968
+        width: 64
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 62}
+        - {x: -19, y: 56}
+        - {x: -23, y: 39}
+        - {x: -32, y: 17}
+        - {x: -32, y: -7}
+        - {x: -22, y: -7}
+        - {x: -27, y: -38}
+        - {x: -22, y: -62}
+        - {x: 25, y: -62}
+        - {x: 32, y: -53}
+        - {x: 32, y: 58}
+        - {x: 23, y: 62}
+    - name: Npc_4
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 968
+        width: 62
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 61}
+        - {x: -29, y: 49}
+        - {x: -31, y: 39}
+        - {x: -31, y: -42}
+        - {x: -24, y: -66}
+        - {x: -12, y: -66}
+        - {x: -5, y: -48}
+        - {x: -2, y: -65}
+        - {x: 0, y: -66}
+        - {x: 24, y: -66}
+        - {x: 30, y: -47}
+        - {x: 30, y: 8}
+        - {x: 20, y: 61}
+      - - {x: 25, y: 66}
+        - {x: 25, y: 57}
+        - {x: 27, y: 55}
+        - {x: 30, y: 56}
+        - {x: 31, y: 58}
+        - {x: 31, y: 66}
+    - name: Npc_5
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 707
+        width: 25
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Npc_6
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 707
+        width: 25
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Npc_7
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 706
+        width: 25
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Npc_8
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 578
+        width: 55
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27.5, y: 62}
+        - {x: -27.5, y: -60}
+        - {x: -26.5, y: -62}
+        - {x: 27.5, y: -62}
+        - {x: 27.5, y: 51}
+        - {x: 25.5, y: 62}
+    - name: Npc_9
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 577
+        width: 55
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27.5, y: 62}
+        - {x: -27.5, y: -60}
+        - {x: -26.5, y: -62}
+        - {x: 27.5, y: -62}
+        - {x: 27.5, y: 51}
+        - {x: 25.5, y: 62}
+    - name: Npc_10
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 576
+        width: 55
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27.5, y: 62}
+        - {x: -27.5, y: -60}
+        - {x: -26.5, y: -62}
+        - {x: 27.5, y: -62}
+        - {x: 27.5, y: 51}
+        - {x: 25.5, y: 62}
+    - name: Npc_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 442
+        width: 63
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31.5, y: 62}
+        - {x: -31.5, y: -58}
+        - {x: -28.5, y: -62}
+        - {x: 31.5, y: -62}
+        - {x: 31.5, y: 50}
+        - {x: 25.5, y: 62}
+    - name: Npc_12
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 444
+        width: 57
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -28.5, y: 60.5}
+        - {x: -28.5, y: 55.5}
+        - {x: -17.5, y: 55.5}
+        - {x: -28.5, y: 45.5}
+        - {x: -28.5, y: -60.5}
+        - {x: 28.5, y: -60.5}
+        - {x: 28.5, y: 54.5}
+        - {x: 23.5, y: 60.5}
+    - name: Npc_13
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 440
+        width: 59
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 20.5, y: 62}
+        - {x: -29.5, y: 62}
+        - {x: -29.5, y: -52}
+        - {x: -26.5, y: -62}
+        - {x: 29.5, y: -62}
+        - {x: 29.5, y: 28}
+        - {x: 28.5, y: 32}
+    - name: Npc_14
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 443
+        width: 62
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 28, y: -60.5}
+        - {x: 31, y: -51.5}
+        - {x: 31, y: 40.5}
+        - {x: 20, y: 60.5}
+        - {x: -31, y: 60.5}
+        - {x: -31, y: -4.5}
+        - {x: -28, y: -10.5}
+        - {x: -28, y: -39.5}
+        - {x: -23, y: -60.5}
+        - {x: -9, y: -60.5}
+        - {x: -3, y: -46.5}
+        - {x: 4, y: -59.5}
+        - {x: 6, y: -60.5}
+    - name: Npc_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 311
+        width: 49
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.5, y: 47}
+        - {x: -20.5, y: 42}
+        - {x: -17.5, y: 41}
+        - {x: -6.5, y: 24}
+        - {x: -20.5, y: -5}
+        - {x: -14.5, y: -53}
+        - {x: -7.5, y: -61}
+        - {x: 14.5, y: -61}
+        - {x: 24.5, y: -55}
+        - {x: 24.5, y: 21}
+        - {x: 21.5, y: 54}
+        - {x: 18.5, y: 61}
+        - {x: -1.5, y: 61}
+        - {x: -11.5, y: 58}
+      - - {x: -24.5, y: 45}
+        - {x: -24.5, y: 39}
+        - {x: -22.5, y: 39}
+        - {x: -20.5, y: 41}
+        - {x: -20.5, y: 44}
+        - {x: -22.5, y: 46}
+    - name: Npc_16
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 311
+        width: 39
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12.5, y: 61}
+        - {x: -19.5, y: 52}
+        - {x: -19.5, y: -51}
+        - {x: -15.5, y: -61}
+        - {x: -9.5, y: -61}
+        - {x: -2.5, y: -57}
+        - {x: -0.5, y: -54}
+        - {x: -1.5, y: -60}
+        - {x: -1.5, y: -61}
+        - {x: 11.5, y: -61}
+        - {x: 19.5, y: -53}
+        - {x: 19.5, y: 58}
+        - {x: 13.5, y: 61}
+    - name: Npc_17
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 310
+        width: 40
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3, y: -61}
+        - {x: 3, y: -59}
+        - {x: 0, y: -58}
+        - {x: -2, y: -61}
+      - - {x: 5, y: -53}
+        - {x: 5, y: -56}
+        - {x: 8, y: -59}
+        - {x: 11, y: -58}
+        - {x: 11, y: -53}
+        - {x: 9, y: -51}
+        - {x: 7, y: -51}
+      - - {x: -13, y: 61}
+        - {x: -20, y: 52}
+        - {x: -20, y: -46}
+        - {x: -12, y: -52}
+        - {x: 17, y: -52}
+        - {x: 20, y: -51}
+        - {x: 20, y: 57}
+        - {x: 12, y: 61}
+    - name: Npc_18
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 318
+        width: 39
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5.5, y: -56.5}
+        - {x: 0.5, y: -56.5}
+        - {x: 1.5, y: -51.5}
+        - {x: -2.5, y: -46.5}
+        - {x: -5.5, y: -47.5}
+      - - {x: 2.5, y: -56.5}
+        - {x: 11.5, y: -56.5}
+        - {x: 11.5, y: -53.5}
+        - {x: 9.5, y: -51.5}
+        - {x: 2.5, y: -54.5}
+      - - {x: -19.5, y: 46.5}
+        - {x: -19.5, y: -54.5}
+        - {x: 9.5, y: -54.5}
+        - {x: 19.5, y: -52.5}
+        - {x: 19.5, y: 24.5}
+        - {x: 17.5, y: 49.5}
+        - {x: 14.5, y: 56.5}
+        - {x: -5.5, y: 56.5}
+        - {x: -15.5, y: 53.5}
+    - name: Npc_19
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 309
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Npc_20
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 190
+        width: 38
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6, y: 56}
+        - {x: -12, y: 56}
+        - {x: -19, y: 52}
+        - {x: -19, y: -56}
+        - {x: 19, y: -56}
+        - {x: 19, y: 32}
+        - {x: 11, y: 53}
+    - name: Npc_21
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 190
+        width: 38
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19, y: 56}
+        - {x: -19, y: -56}
+        - {x: 19, y: -56}
+        - {x: 19, y: 56}
+    - name: Npc_22
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 189
+        width: 38
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6, y: 56}
+        - {x: -12, y: 56}
+        - {x: -19, y: 52}
+        - {x: -19, y: -56}
+        - {x: 19, y: -56}
+        - {x: 19, y: 32}
+        - {x: 11, y: 53}
+    - name: Npc_23
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 188
+        width: 38
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6, y: 56}
+        - {x: -12, y: 56}
+        - {x: -19, y: 52}
+        - {x: -19, y: -56}
+        - {x: 19, y: -56}
+        - {x: 19, y: 32}
+        - {x: 11, y: 53}
+    - name: Npc_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 59
+        width: 59
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -29.5, y: 64}
+        - {x: -29.5, y: -51}
+        - {x: -26.5, y: -64}
+        - {x: 29.5, y: -64}
+        - {x: 29.5, y: 60}
+        - {x: 16.5, y: 64}
+    - name: Npc_25
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 61
+        width: 57
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -28.5, y: 60.5}
+        - {x: -28.5, y: 55.5}
+        - {x: -17.5, y: 55.5}
+        - {x: -28.5, y: 45.5}
+        - {x: -28.5, y: -60.5}
+        - {x: 28.5, y: -60.5}
+        - {x: 28.5, y: 54.5}
+        - {x: 23.5, y: 60.5}
+    - name: Npc_26
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 57
+        width: 59
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 20.5, y: 62}
+        - {x: -29.5, y: 62}
+        - {x: -29.5, y: -52}
+        - {x: -26.5, y: -62}
+        - {x: 29.5, y: -62}
+        - {x: 29.5, y: 28}
+        - {x: 28.5, y: 32}
+    - name: Npc_27
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 60
+        width: 62
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 28, y: -60.5}
+        - {x: 31, y: -51.5}
+        - {x: 31, y: 40.5}
+        - {x: 20, y: 60.5}
+        - {x: -31, y: 60.5}
+        - {x: -31, y: -4.5}
+        - {x: -28, y: -10.5}
+        - {x: -28, y: -39.5}
+        - {x: -23, y: -60.5}
+        - {x: -9, y: -60.5}
+        - {x: -3, y: -46.5}
+        - {x: 4, y: -59.5}
+        - {x: 6, y: -60.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
