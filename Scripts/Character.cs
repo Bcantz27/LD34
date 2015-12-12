@@ -22,6 +22,8 @@ public class Character : MonoBehaviour
 	public Vector3 wanderPoint;
 	public float randomRange;
 
+	private Vector3 oldPos;
+
     public enum ClanType : int
     { 
         Good = 1,
@@ -48,6 +50,14 @@ public class Character : MonoBehaviour
 				}
 			}
 		}
+		if (string.IsNullOrEmpty(status))
+		{
+			status = "Wander";
+		}
+		if (status == "Wander")
+		{
+			wanderPoint = CreateWanderPoint(this.transform.position);
+		}
 	}
 	
 	// Update is called once per frame
@@ -70,11 +80,16 @@ public class Character : MonoBehaviour
 				break;
 			case "Wander":
 				Wander();
+				if (Vector3.Distance(oldPos, this.transform.position) < speed * Time.deltaTime /2)
+				{
+					wanderPoint = CreateWanderPoint(this.transform.position);
+				}
 				break;
             default: //Idle
 
                 break;
         }
+		oldPos = this.transform.position;
     }
 
     public void Follow()
