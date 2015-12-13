@@ -28,7 +28,7 @@ public class Character : MonoBehaviour
 	public float wanderTime;
 	public float restTime;
 
-	public ViewDirection direction;
+	public ViewDirection animationDirection;
 	public bool fixedRotation;
 	public float animationTime;
 	public float animationSpeed;
@@ -114,6 +114,7 @@ public class Character : MonoBehaviour
 		}
 		Animations();
 		oldPos = this.transform.position;
+		
     }
 
     public void Follow()
@@ -126,10 +127,12 @@ public class Character : MonoBehaviour
 			//travelTo.y = this.transform.position.y;
 			//this.transform.position = travelTo;
 			this.transform.position = Vector3.MoveTowards(this.transform.position, leader.position, speed * Time.deltaTime);
+			LookDirection(leader.position);
 		}
 		else if (distance < stepBackDistance)
 		{
 			this.transform.position = Vector3.MoveTowards(this.transform.position, leader.position, -speed * Time.deltaTime);
+			LookDirection(leader.position);
 		}
 	
     }
@@ -140,9 +143,8 @@ public class Character : MonoBehaviour
 
 		if (distance < safeDistance)
 		{
-			Vector3 travelTo = Vector3.LerpUnclamped(this.transform.position, leader.position, -speed * Time.deltaTime);
-			travelTo.y = this.transform.position.y;
-			this.transform.position = travelTo;
+			this.transform.position = Vector3.MoveTowards(this.transform.position, leader.position, -speed * Time.deltaTime);
+			LookDirection(leader.position);
 		}
 		else if (distance >= safeDistance)
 		{
@@ -165,6 +167,7 @@ public class Character : MonoBehaviour
 			else
 			{
 				this.transform.position = Vector3.MoveTowards(this.transform.position, wanderPoint, speed * Time.deltaTime);
+				LookDirection(wanderPoint);
 			}
 			wanderTime -= Time.deltaTime;
 		}
@@ -209,14 +212,21 @@ public class Character : MonoBehaviour
 		return retVal;
 	}
 
+	public void LookDirection(Vector3 target)
+	{
+		this.transform.LookAt(target); 
+		//var temp = Quaternion.LookRotation(target,transform.up);
+		this.transform.localEulerAngles = new Vector3(0, -this.transform.localEulerAngles.y,0);
+		//this.transform.localRotation = temp;
+
+	}
+
 	public void Animations()
 	{
 		if (fixedRotation)
 		{
-
-			
-			var rotVal = (Quaternion.Inverse(transform.rotation) *  transform.GetChild(0).transform.rotation).eulerAngles.y;
-			print(rotVal);
+			var rotVal = (Quaternion.Inverse(transform.localRotation) *  transform.GetChild(0).transform.localRotation).eulerAngles.y;
+			//print(rotVal);
 
 			if (rotVal > 315 || rotVal < 45)
 			{
@@ -237,7 +247,7 @@ public class Character : MonoBehaviour
 				setDirection(ViewDirection.Back);
 			}
 		}
-		AnimationLoop(direction);
+		AnimationLoop(animationDirection);
 	}
 
 	public void AnimationLoop(ViewDirection direction)
@@ -291,7 +301,7 @@ public class Character : MonoBehaviour
 				animationString += "0";
 			}
 
-			Debug.Log(animationString);
+			//Debug.Log(animationString);
 			foreach (Sprite s in sprite)
 			{
 				if (s.name.Contains(animationString))
@@ -307,7 +317,7 @@ public class Character : MonoBehaviour
 
 	public void setDirection(ViewDirection direction)
 	{
-		this.direction = direction;
+		this.animationDirection = direction;
 	}
 
 	public enum ViewDirection
