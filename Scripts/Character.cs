@@ -329,7 +329,15 @@ public class Character : MonoBehaviour
 			}
 			if (!didBreak)
 			{
+<<<<<<< HEAD
                 Debug.LogError(":,(");
+=======
+				Debug.LogWarning(":,(  "+animationString);
+			}
+			else
+			{
+				//Debug.LogWarning("What");
+>>>>>>> 1e08149a96daf7f3b3ad77126a91b1e0d035b324
 			}
 
 			animationTime = animationSpeed * Time.deltaTime;
