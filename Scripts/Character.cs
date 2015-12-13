@@ -327,11 +327,11 @@ public class Character : MonoBehaviour
 			}
 			if (!didBreak)
 			{
-				Debug.LogWarning(":,(");
+				Debug.LogWarning(":,(  "+animationString);
 			}
 			else
 			{
-				Debug.LogWarning("What");
+				//Debug.LogWarning("What");
 			}
 
 			animationTime = animationSpeed * Time.deltaTime;
