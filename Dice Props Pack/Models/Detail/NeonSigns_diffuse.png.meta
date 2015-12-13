@@ -1,6 +1,21 @@
 fileFormatVersion: 2
 guid: 8f2119f491f661a4592b97a61ae48df8
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: NeonSigns_diffuse_0
+    21300002: NeonSigns_diffuse_1
+    21300004: NeonSigns_diffuse_2
+    21300006: NeonSigns_diffuse_3
+    21300008: NeonSigns_diffuse_4
+    21300010: NeonSigns_diffuse_5
+    21300012: NeonSigns_diffuse_6
+    21300014: NeonSigns_diffuse_7
+    21300016: NeonSigns_diffuse_8
+    21300018: NeonSigns_diffuse_9
+    21300020: NeonSigns_diffuse_10
+    21300022: NeonSigns_diffuse_11
+    21300024: NeonSigns_diffuse_12
+    21300026: NeonSigns_diffuse_13
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -14,11 +29,14 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
   generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -3
   maxTextureSize: 1024
@@ -29,12 +47,15 @@ TextureImporter:
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
+  rGBM: 0
   compressionQuality: 50
+  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
@@ -50,6 +71,39 @@ TextureImporter:
         height: 123
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -334.5, y: -54.5}
+        - {x: -298.5, y: -24.5}
+        - {x: -277.5, y: -61.5}
+        - {x: -243.5, y: -61.5}
+        - {x: -242.5, y: -19.5}
+        - {x: -186.5, y: -61.5}
+        - {x: -131.5, y: -61.5}
+        - {x: -102.5, y: 22.5}
+        - {x: -80.5, y: -14.5}
+        - {x: -44.5, y: -22.5}
+        - {x: -42.5, y: -61.5}
+        - {x: 282.5, y: -61.5}
+        - {x: 300.5, y: 17.5}
+        - {x: 319.5, y: -7.5}
+        - {x: 332.5, y: -61.5}
+        - {x: 370.5, y: -61.5}
+        - {x: 380.5, y: -53.5}
+        - {x: 399.5, y: -61.5}
+        - {x: 443.5, y: -61.5}
+        - {x: 480.5, y: -15.5}
+        - {x: 480.5, y: 36.5}
+        - {x: 460.5, y: 61.5}
+        - {x: -452.5, y: 61.5}
+        - {x: -465.5, y: 59.5}
+        - {x: -479.5, y: 42.5}
+        - {x: -480.5, y: 37.5}
+        - {x: -480.5, y: -61.5}
+        - {x: -445.5, y: -61.5}
+        - {x: -436.5, y: -31.5}
+        - {x: -390.5, y: -61.5}
+        - {x: -340.5, y: -61.5}
     - name: NeonSigns_diffuse_1
       rect:
         serializedVersion: 2
@@ -58,7 +112,21 @@ TextureImporter:
         width: 302
         height: 120
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 151, y: 26}
+        - {x: 151, y: 60}
+        - {x: -151, y: 60}
+        - {x: -151, y: -15}
+        - {x: -149, y: -18}
+        - {x: -137, y: -21}
+        - {x: -151, y: -32}
+        - {x: -151, y: -60}
+        - {x: -28, y: -60}
+        - {x: -27, y: -58}
+        - {x: 14, y: -60}
+        - {x: 87, y: -60}
     - name: NeonSigns_diffuse_2
       rect:
         serializedVersion: 2
@@ -68,6 +136,20 @@ TextureImporter:
         height: 170
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 290, y: 85}
+        - {x: -289, y: 85}
+        - {x: -292, y: 82}
+        - {x: -292, y: -81}
+        - {x: -289, y: -85}
+        - {x: 290, y: -85}
+        - {x: 292, y: -82}
+        - {x: 292, y: 82}
+      - - {x: -256, y: 49}
+        - {x: 257, y: 49}
+        - {x: 257, y: -49}
+        - {x: -256, y: -49}
     - name: NeonSigns_diffuse_3
       rect:
         serializedVersion: 2
@@ -77,6 +159,14 @@ TextureImporter:
         height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -251.5, y: 16.5}
+        - {x: -252.5, y: 15.5}
+        - {x: -252.5, y: -16.5}
+        - {x: 251.5, y: -16.5}
+        - {x: 252.5, y: -15.5}
+        - {x: 252.5, y: 16.5}
     - name: NeonSigns_diffuse_4
       rect:
         serializedVersion: 2
@@ -86,6 +176,23 @@ TextureImporter:
         height: 125
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 73.5, y: -45.5}
+        - {x: 101.5, y: -62.5}
+        - {x: 265.5, y: -62.5}
+        - {x: 267.5, y: -61.5}
+        - {x: 267.5, y: -26.5}
+        - {x: 192.5, y: 62.5}
+        - {x: -175.5, y: 62.5}
+        - {x: -178.5, y: 51.5}
+        - {x: -232.5, y: 62.5}
+        - {x: -267.5, y: 62.5}
+        - {x: -267.5, y: -62.5}
+        - {x: -233.5, y: -62.5}
+        - {x: -203.5, y: -39.5}
+        - {x: -195.5, y: -62.5}
+        - {x: 40.5, y: -62.5}
     - name: NeonSigns_diffuse_5
       rect:
         serializedVersion: 2
@@ -95,6 +202,18 @@ TextureImporter:
         height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -79, y: 48}
+        - {x: -186, y: 48}
+        - {x: -209, y: 34}
+        - {x: -209, y: -28}
+        - {x: -201, y: -48}
+        - {x: 188, y: -48}
+        - {x: 206, y: -46}
+        - {x: 209, y: -40}
+        - {x: 209, y: -12}
+        - {x: 175, y: 27}
     - name: NeonSigns_diffuse_6
       rect:
         serializedVersion: 2
@@ -104,6 +223,23 @@ TextureImporter:
         height: 124
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 133.5, y: -60}
+        - {x: 154.5, y: 22}
+        - {x: 178.5, y: -62}
+        - {x: 211.5, y: -62}
+        - {x: 211.5, y: 31}
+        - {x: 191.5, y: 62}
+        - {x: -192.5, y: 62}
+        - {x: -211.5, y: 58}
+        - {x: -211.5, y: -34}
+        - {x: -208.5, y: -39}
+        - {x: -189.5, y: -62}
+        - {x: -62.5, y: -62}
+        - {x: -59.5, y: -24}
+        - {x: 4.5, y: -62}
+        - {x: 122.5, y: -62}
     - name: NeonSigns_diffuse_7
       rect:
         serializedVersion: 2
@@ -113,6 +249,22 @@ TextureImporter:
         height: 114
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 142, y: 57}
+        - {x: -69, y: 57}
+        - {x: -93, y: 18}
+        - {x: -126, y: 36}
+        - {x: -140, y: 38}
+        - {x: -200, y: 36}
+        - {x: -209, y: 29}
+        - {x: -209, y: -12}
+        - {x: -207, y: -20}
+        - {x: -107, y: -57}
+        - {x: 135, y: -57}
+        - {x: 168, y: -40}
+        - {x: 209, y: -13}
+        - {x: 209, y: 14}
     - name: NeonSigns_diffuse_8
       rect:
         serializedVersion: 2
@@ -122,6 +274,26 @@ TextureImporter:
         height: 125
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 91, y: -62.5}
+        - {x: 317, y: -62.5}
+        - {x: 317, y: 62.5}
+        - {x: -19, y: 62.5}
+        - {x: -22, y: 57.5}
+        - {x: -70, y: 2.5}
+        - {x: -71, y: 62.5}
+        - {x: -212, y: 62.5}
+        - {x: -227, y: 51.5}
+        - {x: -234, y: -16.5}
+        - {x: -283, y: 62.5}
+        - {x: -315, y: 62.5}
+        - {x: -317, y: 61.5}
+        - {x: -317, y: -34.5}
+        - {x: -292, y: -62.5}
+        - {x: 35, y: -62.5}
+        - {x: 46, y: -1.5}
+        - {x: 79, y: 12.5}
     - name: NeonSigns_diffuse_9
       rect:
         serializedVersion: 2
@@ -131,6 +303,16 @@ TextureImporter:
         height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 157, y: 48}
+        - {x: -23, y: 48}
+        - {x: -161, y: 37}
+        - {x: -179, y: -21}
+        - {x: -179, y: -48}
+        - {x: 143, y: -48}
+        - {x: 179, y: -8}
+        - {x: 179, y: 12}
     - name: NeonSigns_diffuse_10
       rect:
         serializedVersion: 2
@@ -140,6 +322,23 @@ TextureImporter:
         height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 176.5, y: -59}
+        - {x: 211.5, y: -21}
+        - {x: 211.5, y: 28}
+        - {x: 207.5, y: 47}
+        - {x: 188.5, y: 63}
+        - {x: -210.5, y: 63}
+        - {x: -211.5, y: 61}
+        - {x: -211.5, y: 34}
+        - {x: -204.5, y: 28}
+        - {x: -211.5, y: 16}
+        - {x: -211.5, y: -63}
+        - {x: -178.5, y: -63}
+        - {x: -176.5, y: -55}
+        - {x: -155.5, y: -63}
+        - {x: 170.5, y: -63}
     - name: NeonSigns_diffuse_11
       rect:
         serializedVersion: 2
@@ -149,6 +348,26 @@ TextureImporter:
         height: 225
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 84.5, y: 13.5}
+        - {x: 160.5, y: 89.5}
+        - {x: 160.5, y: 110.5}
+        - {x: -61.5, y: 110.5}
+        - {x: -91.5, y: 84.5}
+        - {x: -160.5, y: 12.5}
+        - {x: -160.5, y: -8.5}
+        - {x: -75.5, y: -92.5}
+        - {x: -35.5, y: -112.5}
+        - {x: -14.5, y: -112.5}
+        - {x: 27.5, y: -72.5}
+        - {x: 28.5, y: -53.5}
+        - {x: 20.5, y: -44.5}
+      - - {x: -115.5, y: 112.5}
+        - {x: -114.5, y: 109.5}
+        - {x: -111.5, y: 109.5}
+        - {x: -109.5, y: 111.5}
+        - {x: -109.5, y: 112.5}
     - name: NeonSigns_diffuse_12
       rect:
         serializedVersion: 2
@@ -158,6 +377,30 @@ TextureImporter:
         height: 123
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -102.5, y: -56.5}
+        - {x: -86.5, y: -13.5}
+        - {x: -85.5, y: -7.5}
+        - {x: -76.5, y: -61.5}
+        - {x: -32.5, y: -61.5}
+        - {x: 24.5, y: -25.5}
+        - {x: 35.5, y: -61.5}
+        - {x: 326.5, y: -61.5}
+        - {x: 340.5, y: -41.5}
+        - {x: 340.5, y: 54.5}
+        - {x: 313.5, y: 61.5}
+        - {x: -317.5, y: 61.5}
+        - {x: -339.5, y: 42.5}
+        - {x: -340.5, y: 35.5}
+        - {x: -340.5, y: -16.5}
+        - {x: -335.5, y: -18.5}
+        - {x: -303.5, y: -58.5}
+        - {x: -299.5, y: -61.5}
+        - {x: -193.5, y: -61.5}
+        - {x: -179.5, y: -35.5}
+        - {x: -135.5, y: -61.5}
+        - {x: -106.5, y: -61.5}
     - name: NeonSigns_diffuse_13
       rect:
         serializedVersion: 2
@@ -166,6 +409,27 @@ TextureImporter:
         width: 406
         height: 116
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 94, y: 14}
+        - {x: 89, y: 16}
+        - {x: 98, y: 27}
+        - {x: 99, y: 3}
+        - {x: 99, y: -15}
+        - {x: 102, y: -28}
+        - {x: 112, y: -45}
+        - {x: 122, y: -58}
+        - {x: 203, y: -58}
+        - {x: 203, y: 58}
+        - {x: -203, y: 58}
+        - {x: -203, y: -58}
+        - {x: 77, y: -58}
+        - {x: 99, y: -12}
+        - {x: 99, y: -4}
+        - {x: 98, y: 10}
+    outline: []
   spritePackingTag: 
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 
