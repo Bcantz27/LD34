@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Player : MonoBehaviour 
 {
@@ -13,12 +14,20 @@ public class Player : MonoBehaviour
 
 	public GameObject camera;
 
-	
+	public GameObject handLeft;
+	public GameObject handRight;
+
+	public GameObject punchHitBox;
+	public float punchForce;
+
 	// Use this for initialization
 	void Start () 
     {
 		enegry = 100;
 		savedSpeed = speed;
+		//Physics.IgnoreCollision(handLeft.GetComponent<Collider>(), transform.GetComponent<Collider>(),true);
+		//Physics.IgnoreCollision(handRight.GetComponent<Collider>(), transform.GetComponent<Collider>(), true);
+		//Physics.IgnoreCollision(handLeft.GetComponent<Collider>(), handRight.GetComponent<Collider>(), true);
 	}
 	
 	// Update is called once per frame
@@ -65,6 +74,25 @@ public class Player : MonoBehaviour
 			GetComponent<Rigidbody>().AddForce(transform.up*jump);
 		}
 
+		if (Input.GetMouseButtonDown(0))
+		{
+			if (!handLeft.GetComponent<HandScript>().punch)
+			{
+				handLeft.GetComponent<HandScript>().punch = true;
+				GameObject hitbox = Instantiate(punchHitBox as Object, Camera.main.transform.position, punchHitBox.transform.rotation) as GameObject;
+				hitbox.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * punchForce);
+			}
+		}
+
+		if (Input.GetMouseButtonDown(1))
+		{
+			if (!handRight.GetComponent<HandScript>().punch)
+			{
+				handRight.GetComponent<HandScript>().punch = true;
+				GameObject hitbox = Instantiate(punchHitBox as Object, Camera.main.transform.position, punchHitBox.transform.rotation) as GameObject;
+				hitbox.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * punchForce);
+			}
+		}
 		
 		//Vector3 cameraAngles = camera.transform.localEulerAngles;
 

@@ -9,7 +9,7 @@ public class Character : MonoBehaviour
     public string sheetName = "npc_man0";
 
     public float influence;
-    public int health;
+    public float health;
     public float speed;
 
 	public float followDistance;
@@ -40,6 +40,10 @@ public class Character : MonoBehaviour
 
 	public Vector3 rotateTest;
 
+	public ClanType clan;
+
+	public Aggerssion aggerssion;
+
     public enum ClanType : int
     { 
         Good = 1,
@@ -59,13 +63,21 @@ public class Character : MonoBehaviour
 
 		if (leader == null)
 		{
-			foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Character"))
-			{
-				if (obj.GetComponent<Character>().isLeader)
+			if (GameObject.FindGameObjectsWithTag("Character").Length > 0)
+			{ 
+				foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Character"))
 				{
-					leader = obj.transform;
-					status = "Follow";
-					break;
+					if (obj.GetComponent<Character>() != null)
+					{
+						if (obj.GetComponent<Character>().isLeader && !obj.Equals(this.gameObject))
+						{
+							
+							leader = obj.transform;
+							influence = leader.GetComponent<Character>().health;
+							status = "Follow";
+							break;
+						}
+					}
 				}
 			}
 		}
@@ -75,8 +87,11 @@ public class Character : MonoBehaviour
 		}
 		if (status == "Wander")
 		{
+			wanderTime = 10;
 			wanderPoint = CreateWanderPoint(this.transform.position);
 		}
+
+		
 	}
 	
 	// Update is called once per frame
@@ -119,8 +134,48 @@ public class Character : MonoBehaviour
 		}
 		Animations();
 		oldPos = this.transform.position;
-		
+
+		InflunceCheck();
     }
+
+	public void InflunceCheck()
+	{
+		if (!isLeader)
+		{
+			if (leader != null)
+			{
+				float distance = Vector3.Distance(this.transform.position, leader.position);
+				influence += (leader.GetComponent<Character>().health / influence) / distance;
+				clan = leader.GetComponent<Character>().clan;
+				aggerssion = leader.GetComponent<Character>().aggerssion;
+			}
+			else
+			{
+				if (GameObject.FindGameObjectsWithTag("Character").Length > 0)
+				{
+					foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Character"))
+					{
+						if (obj.GetComponent<Character>() != null)
+						{
+							if (obj.GetComponent<Character>().isLeader && !obj.Equals(this.gameObject))
+							{
+								float distance = Vector3.Distance(this.transform.position, obj.transform.position);
+								if (distance < 5)
+								{
+									leader = obj.transform;
+									influence = leader.GetComponent<Character>().health;
+									status = "Follow";
+									break;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+#region Movement and Animations
 
     public void Follow()
     {
@@ -231,7 +286,8 @@ public class Character : MonoBehaviour
 		this.transform.LookAt(target);
 		rotateTest = this.transform.localEulerAngles;
 
-		this.transform.localEulerAngles = new Vector3(this.transform.localEulerAngles.x, this.transform.localEulerAngles.y-180, this.transform.localEulerAngles.z);
+		//this.transform.localEulerAngles = new Vector3(this.transform.localEulerAngles.x, this.transform.localEulerAngles.y-180, this.transform.localEulerAngles.z);
+		this.transform.localEulerAngles = new Vector3(0, this.transform.localEulerAngles.y - 180, 0);
 
 	}
 
@@ -349,5 +405,5 @@ public class Character : MonoBehaviour
 		Left,
 		Back
 	}
-
+#endregion
 }
