@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Character : MonoBehaviour 
 {
+	public SpriteRenderer spriteSheet;
+	public List<Sprite> sprite;
+
     public float influence;
     public int health;
     public float speed;
@@ -21,8 +25,18 @@ public class Character : MonoBehaviour
 
 	public Vector3 wanderPoint;
 	public float randomRange;
+	public float wanderTime;
+	public float restTime;
+
+	public ViewDirection direction;
+	public bool fixedRotation;
+	public float animationTime;
+	public float animationSpeed;
+
+	public bool standing;
 
 	private Vector3 oldPos;
+
 
     public enum ClanType : int
     { 
@@ -46,6 +60,7 @@ public class Character : MonoBehaviour
 				if (obj.GetComponent<Character>().isLeader)
 				{
 					leader = obj.transform;
+					status = "Follow";
 					break;
 				}
 			}
@@ -89,6 +104,15 @@ public class Character : MonoBehaviour
 
                 break;
         }
+		if (Vector3.Distance(oldPos, this.transform.position) < speed * Time.deltaTime / 2)
+		{
+			standing = true;
+		}
+		else
+		{
+			standing = false;
+		}
+		Animations();
 		oldPos = this.transform.position;
     }
 
@@ -109,6 +133,7 @@ public class Character : MonoBehaviour
 		}
 	
     }
+
 	public void RunAway()
 	{
 		float distance = Vector3.Distance(this.transform.position, leader.position);
@@ -122,23 +147,44 @@ public class Character : MonoBehaviour
 		else if (distance >= safeDistance)
 		{
 
-			Wander(CreateWanderPoint(this.transform.position));
+			Wander();
 		}
 	}
+
 	public void Wander()
 	{
-		float distance = Vector3.Distance(this.transform.position, wanderPoint);
 
-		if (distance < 1)
+		if (wanderTime > 0)
 		{
-			wanderPoint = CreateWanderPoint(this.transform.position);
+			float distance = Vector3.Distance(this.transform.position, wanderPoint);
+
+			if (distance < 1)
+			{
+				wanderPoint = CreateWanderPoint(this.transform.position);
+			}
+			else
+			{
+				this.transform.position = Vector3.MoveTowards(this.transform.position, wanderPoint, speed * Time.deltaTime);
+			}
+			wanderTime -= Time.deltaTime;
 		}
 		else
 		{
-			this.transform.position = Vector3.MoveTowards(this.transform.position, wanderPoint, speed * Time.deltaTime);
+			if (restTime >= 0)
+			{
+				restTime -= Time.deltaTime;
+				standing = true;
+			}
+			else 
+			{
+				standing = false;
+				wanderTime = 60;
+				restTime = 30;
+			}
 		}
 	}
-	public void Wander(Vector3 wanderPoint)
+
+	/*public void Wander(Vector3 wanderPoint)
 	{
 		float distance = Vector3.Distance(this.transform.position, wanderPoint);
 
@@ -151,6 +197,8 @@ public class Character : MonoBehaviour
 			this.transform.position = Vector3.MoveTowards(this.transform.position, wanderPoint, speed * Time.deltaTime);
 		}
 	}
+	*/
+
 	public Vector3 CreateWanderPoint(Vector3 area)
 	{
 		Vector3 retVal = new Vector3();
@@ -160,4 +208,114 @@ public class Character : MonoBehaviour
 
 		return retVal;
 	}
+
+	public void Animations()
+	{
+		if (fixedRotation)
+		{
+
+			
+			var rotVal = (Quaternion.Inverse(transform.rotation) *  transform.GetChild(0).transform.rotation).eulerAngles.y;
+			print(rotVal);
+
+			if (rotVal > 315 || rotVal < 45)
+			{
+				//Front
+				setDirection(ViewDirection.Front);
+			}
+			else if (rotVal >= 45 && rotVal <= 135) // Right Side
+			{
+				setDirection(ViewDirection.Right);
+			}
+			else if (rotVal >= 225 && rotVal <= 315)   //Left Side
+			{
+				setDirection(ViewDirection.Left);
+			}
+			else if (rotVal > 135 && rotVal < 225)
+			{
+				//Back
+				setDirection(ViewDirection.Back);
+			}
+		}
+		AnimationLoop(direction);
+	}
+
+	public void AnimationLoop(ViewDirection direction)
+	{
+		string animationString = "";
+		string currentSprite = spriteSheet.sprite.name;
+		
+		animationString += "npc_man0_";
+		if (animationTime > 0)
+		{
+			animationTime -= Time.deltaTime;
+		}
+		else
+		{
+			if (direction == ViewDirection.Front)
+			{
+				animationString += "F";
+			}
+			else if (direction == ViewDirection.Back)
+			{
+				animationString += "B";
+			}
+			else if (direction == ViewDirection.Left)
+			{
+				animationString += "S";
+				spriteSheet.flipX = false;
+			}
+			else if (direction == ViewDirection.Right)
+			{
+				animationString += "S";
+				spriteSheet.flipX = true;
+			}
+
+			if (standing)
+			{
+				animationString += "Stand";
+			}
+			else
+			{
+				animationString += "Walk";
+			}
+
+			List<Sprite> temp = new List<Sprite>();
+
+			if (currentSprite.EndsWith("0"))
+			{
+				animationString += "1";
+			}
+			else
+			{
+				animationString += "0";
+			}
+
+			Debug.Log(animationString);
+			foreach (Sprite s in sprite)
+			{
+				if (s.name.Contains(animationString))
+				{
+					spriteSheet.sprite = s;
+					break;
+				}
+			}
+
+			animationTime = animationSpeed * Time.deltaTime;
+		}
+	}
+
+	public void setDirection(ViewDirection direction)
+	{
+		this.direction = direction;
+	}
+
+	public enum ViewDirection
+	{
+		Front,
+		Right,
+		Left,
+		Back
+	}
+
 }
