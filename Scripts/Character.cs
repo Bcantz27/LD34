@@ -7,6 +7,7 @@ public class Character : MonoBehaviour
 	public SpriteRenderer spriteSheet;
 	public List<Sprite> sprite;
 
+    public int id;
     public float influence;
     public int health;
     public float speed;
@@ -37,6 +38,7 @@ public class Character : MonoBehaviour
 
 	private Vector3 oldPos;
 
+	public Vector3 rotateTest;
 
     public enum ClanType : int
     { 
@@ -126,13 +128,16 @@ public class Character : MonoBehaviour
 			//Vector3 travelTo = Vector3.LerpUnclamped(this.transform.position, leader.position, speed * Time.deltaTime);
 			//travelTo.y = this.transform.position.y;
 			//this.transform.position = travelTo;
+			
 			this.transform.position = Vector3.MoveTowards(this.transform.position, leader.position, speed * Time.deltaTime);
-			LookDirection(leader.position);
+			LookDirection(Vector3.MoveTowards(this.transform.position, leader.position, speed * Time.deltaTime));
 		}
 		else if (distance < stepBackDistance)
 		{
+			
 			this.transform.position = Vector3.MoveTowards(this.transform.position, leader.position, -speed * Time.deltaTime);
-			LookDirection(leader.position);
+			LookDirection( Vector3.MoveTowards(this.transform.position, leader.position, -speed * Time.deltaTime));
+			
 		}
 	
     }
@@ -142,9 +147,11 @@ public class Character : MonoBehaviour
 		float distance = Vector3.Distance(this.transform.position, leader.position);
 
 		if (distance < safeDistance)
-		{
+		{	
+			
 			this.transform.position = Vector3.MoveTowards(this.transform.position, leader.position, -speed * Time.deltaTime);
-			LookDirection(leader.position);
+			LookDirection(Vector3.MoveTowards(this.transform.position, leader.position, -speed * Time.deltaTime));
+		
 		}
 		else if (distance >= safeDistance)
 		{
@@ -166,8 +173,11 @@ public class Character : MonoBehaviour
 			}
 			else
 			{
+				
 				this.transform.position = Vector3.MoveTowards(this.transform.position, wanderPoint, speed * Time.deltaTime);
+				//LookDirection(Vector3.MoveTowards(this.transform.position, wanderPoint, speed * Time.deltaTime));
 				LookDirection(wanderPoint);
+				
 			}
 			wanderTime -= Time.deltaTime;
 		}
@@ -214,10 +224,11 @@ public class Character : MonoBehaviour
 
 	public void LookDirection(Vector3 target)
 	{
-		this.transform.LookAt(target); 
-		//var temp = Quaternion.LookRotation(target,transform.up);
-		this.transform.localEulerAngles = new Vector3(0, -this.transform.localEulerAngles.y,0);
-		//this.transform.localRotation = temp;
+		
+		this.transform.LookAt(target);
+		rotateTest = this.transform.localEulerAngles;
+
+		this.transform.localEulerAngles = new Vector3(this.transform.localEulerAngles.x, this.transform.localEulerAngles.y-180, this.transform.localEulerAngles.z);
 
 	}
 
@@ -225,7 +236,7 @@ public class Character : MonoBehaviour
 	{
 		if (fixedRotation)
 		{
-			var rotVal = (Quaternion.Inverse(transform.localRotation) *  transform.GetChild(0).transform.localRotation).eulerAngles.y;
+			var rotVal = (Quaternion.Inverse(transform.rotation) *  transform.GetChild(0).transform.rotation).eulerAngles.y;
 			//print(rotVal);
 
 			if (rotVal > 315 || rotVal < 45)
@@ -236,10 +247,12 @@ public class Character : MonoBehaviour
 			else if (rotVal >= 45 && rotVal <= 135) // Right Side
 			{
 				setDirection(ViewDirection.Right);
+				spriteSheet.flipX = true;
 			}
 			else if (rotVal >= 225 && rotVal <= 315)   //Left Side
 			{
 				setDirection(ViewDirection.Left);
+				spriteSheet.flipX = false;
 			}
 			else if (rotVal > 135 && rotVal < 225)
 			{
@@ -255,7 +268,7 @@ public class Character : MonoBehaviour
 		string animationString = "";
 		string currentSprite = spriteSheet.sprite.name;
 		
-		animationString += "npc_man0_";
+		animationString += "npc_man" + id+ "_";
 		if (animationTime > 0)
 		{
 			animationTime -= Time.deltaTime;
@@ -301,14 +314,24 @@ public class Character : MonoBehaviour
 				animationString += "0";
 			}
 
+			bool didBreak = false;
 			//Debug.Log(animationString);
 			foreach (Sprite s in sprite)
 			{
 				if (s.name.Contains(animationString))
 				{
 					spriteSheet.sprite = s;
+					didBreak = true;
 					break;
 				}
+			}
+			if (!didBreak)
+			{
+				Debug.LogWarning(":,(");
+			}
+			else
+			{
+				Debug.LogWarning("What");
 			}
 
 			animationTime = animationSpeed * Time.deltaTime;
