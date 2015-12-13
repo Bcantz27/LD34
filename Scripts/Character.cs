@@ -6,8 +6,8 @@ public class Character : MonoBehaviour
 {
 	public SpriteRenderer spriteSheet;
 	public List<Sprite> sprite;
+    public string sheetName = "npc_man0";
 
-    public int id;
     public float influence;
     public int health;
     public float speed;
@@ -55,6 +55,8 @@ public class Character : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
+        sprite = new List<Sprite>(Resources.LoadAll<Sprite>("Images/" + sheetName));
+
 		if (leader == null)
 		{
 			foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Character"))
@@ -268,7 +270,7 @@ public class Character : MonoBehaviour
 		string animationString = "";
 		string currentSprite = spriteSheet.sprite.name;
 		
-		animationString += "npc_man" + id+ "_";
+		//animationString += "man" + id+ "_";
 		if (animationTime > 0)
 		{
 			animationTime -= Time.deltaTime;
@@ -318,7 +320,7 @@ public class Character : MonoBehaviour
 			//Debug.Log(animationString);
 			foreach (Sprite s in sprite)
 			{
-				if (s.name.Contains(animationString))
+                if (s.name.Contains(animationString))
 				{
 					spriteSheet.sprite = s;
 					didBreak = true;
@@ -327,11 +329,7 @@ public class Character : MonoBehaviour
 			}
 			if (!didBreak)
 			{
-				Debug.LogWarning(":,(");
-			}
-			else
-			{
-				Debug.LogWarning("What");
+                Debug.LogError(":,(");
 			}
 
 			animationTime = animationSpeed * Time.deltaTime;

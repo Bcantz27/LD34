@@ -1,9 +1,33 @@
 fileFormatVersion: 2
 guid: 36af3c7dd7e421c4f9698863653a0684
-timeCreated: 1449987160
+timeCreated: 1449993944
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: sa_man1_FStand0
+    21300002: sa_man1_FStand1
+    21300004: sa_man1_SStand0
+    21300006: sa_man1_SStand1
+    21300008: sa_man1_BStand0
+    21300010: sa_man1_BStand1
+    21300012: sa_man1_6
+    21300014: sa_man1_7
+    21300016: sa_man1_8
+    21300018: sa_man1_9
+    21300020: sa_man1_10
+    21300022: sa_man1_11
+    21300024: sa_man1_FWalk0
+    21300026: sa_man1_FWalk1
+    21300028: sa_man1_SWalk0
+    21300030: sa_man1_SWalk1
+    21300032: sa_man1_BWalk0
+    21300034: sa_man1_BWalk1
+    21300036: sa_man1_18
+    21300038: sa_man1_19
+    21300040: sa_man1_20
+    21300042: sa_man1_21
+    21300044: sa_man1_22
+    21300046: sa_man1_23
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -26,30 +50,468 @@ TextureImporter:
   cubemapConvolutionSteps: 7
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
-    aniso: -1
+    filterMode: 0
+    aniso: 16
     mipBias: -1
-    wrapMode: -1
-  nPOTScale: 1
+    wrapMode: 1
+  nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
-  alphaIsTransparency: 0
-  textureType: -1
+  alphaIsTransparency: 1
+  textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: sa_man1_FStand0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 28}
+        - {x: -12, y: -32}
+        - {x: 12, y: -32}
+        - {x: 12, y: 25}
+        - {x: 5, y: 28}
+    - name: sa_man1_FStand1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 28}
+        - {x: -10, y: 28}
+        - {x: -12, y: 5}
+        - {x: -12, y: -32}
+        - {x: 12, y: -32}
+        - {x: 12, y: 14}
+        - {x: 9, y: 23}
+    - name: sa_man1_SStand0
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 28}
+        - {x: -8, y: 25}
+        - {x: -8, y: 17}
+        - {x: -7, y: 14}
+        - {x: -6, y: -32}
+        - {x: 8, y: -32}
+        - {x: 10, y: -26}
+        - {x: 10, y: 24}
+        - {x: 9, y: 28}
+    - name: sa_man1_SStand1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 28}
+        - {x: -8, y: 25}
+        - {x: -8, y: 17}
+        - {x: -7, y: 14}
+        - {x: -6, y: -32}
+        - {x: 10, y: -32}
+        - {x: 10, y: 28}
+    - name: sa_man1_BStand0
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 28}
+        - {x: -12, y: -32}
+        - {x: 12, y: -32}
+        - {x: 12, y: 25}
+        - {x: 5, y: 28}
+    - name: sa_man1_BStand1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 28}
+        - {x: -10, y: 28}
+        - {x: -12, y: 5}
+        - {x: -12, y: -32}
+        - {x: 12, y: -32}
+        - {x: 12, y: 14}
+        - {x: 9, y: 23}
+    - name: sa_man1_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 28}
+        - {x: -9, y: 27}
+        - {x: -12, y: 16}
+        - {x: -12, y: -32}
+        - {x: 13, y: -32}
+        - {x: 16, y: -11}
+        - {x: 16, y: 7}
+        - {x: 8, y: 28}
+    - name: sa_man1_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 64
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9, y: 23}
+        - {x: 5, y: 28}
+        - {x: -10, y: 28}
+        - {x: -12, y: 5}
+        - {x: -12, y: -32}
+        - {x: 12, y: -32}
+        - {x: 12, y: -30}
+        - {x: 16, y: -3}
+        - {x: 16, y: 6}
+    - name: sa_man1_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 28}
+        - {x: -8, y: -20}
+        - {x: -7, y: -32}
+        - {x: 11, y: -32}
+        - {x: 12, y: -20}
+        - {x: 12, y: 27}
+        - {x: 11, y: 28}
+    - name: sa_man1_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 64
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 28}
+        - {x: -8, y: 25}
+        - {x: -8, y: -32}
+        - {x: 9, y: -32}
+        - {x: 12, y: -6}
+        - {x: 12, y: 22}
+        - {x: 8, y: 28}
+    - name: sa_man1_10
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 28}
+        - {x: -6, y: 28}
+        - {x: -9, y: 27}
+        - {x: -16, y: 7}
+        - {x: -16, y: -15}
+        - {x: -12, y: -32}
+        - {x: 12, y: -32}
+        - {x: 12, y: 12}
+        - {x: 9, y: 23}
+    - name: sa_man1_11
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 64
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 28}
+        - {x: -10, y: 28}
+        - {x: -12, y: 5}
+        - {x: -12, y: -32}
+        - {x: 12, y: -32}
+        - {x: 12, y: 14}
+        - {x: 9, y: 23}
+    - name: sa_man1_FWalk0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 28}
+        - {x: -9, y: 27}
+        - {x: -11, y: 8}
+        - {x: -11, y: -21}
+        - {x: -9, y: -32}
+        - {x: 12, y: -32}
+        - {x: 12, y: 14}
+        - {x: 7, y: 28}
+    - name: sa_man1_FWalk1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 28}
+        - {x: -10, y: 8}
+        - {x: -11, y: -11}
+        - {x: -11, y: -32}
+        - {x: 7, y: -32}
+        - {x: 12, y: -30}
+        - {x: 12, y: 16}
+        - {x: 9, y: 28}
+    - name: sa_man1_SWalk0
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: -11}
+        - {x: -13, y: -32}
+        - {x: 14, y: -32}
+        - {x: 14, y: 8}
+        - {x: 9, y: 28}
+        - {x: -5, y: 28}
+        - {x: -8, y: 25}
+    - name: sa_man1_SWalk1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 28}
+        - {x: -8, y: 25}
+        - {x: -8, y: 17}
+        - {x: -7, y: 14}
+        - {x: -6, y: -32}
+        - {x: 8, y: -32}
+        - {x: 10, y: -26}
+        - {x: 10, y: 24}
+        - {x: 9, y: 28}
+    - name: sa_man1_BWalk0
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 28}
+        - {x: -11, y: -32}
+        - {x: 12, y: -32}
+        - {x: 12, y: 14}
+        - {x: 7, y: 28}
+    - name: sa_man1_BWalk1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 28}
+        - {x: -12, y: 13}
+        - {x: -12, y: -32}
+        - {x: 1, y: -32}
+        - {x: 11, y: -27}
+        - {x: 11, y: 27}
+        - {x: 8, y: 28}
+    - name: sa_man1_18
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: 28}
+        - {x: -9, y: 28}
+        - {x: -11, y: 23}
+        - {x: -11, y: -29}
+        - {x: -9, y: -32}
+        - {x: 13, y: -32}
+        - {x: 12, y: -30}
+        - {x: 16, y: -7}
+        - {x: 16, y: 7}
+    - name: sa_man1_19
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: 28}
+        - {x: -8, y: 28}
+        - {x: -10, y: 8}
+        - {x: -11, y: -10}
+        - {x: -11, y: -32}
+        - {x: 11, y: -32}
+        - {x: 16, y: -15}
+        - {x: 16, y: 14}
+        - {x: 11, y: 24}
+    - name: sa_man1_20
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 28}
+        - {x: -13, y: 19}
+        - {x: -13, y: -32}
+        - {x: 14, y: -32}
+        - {x: 14, y: 26}
+        - {x: 10, y: 28}
+    - name: sa_man1_21
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 28}
+        - {x: -8, y: -20}
+        - {x: -7, y: -32}
+        - {x: 11, y: -32}
+        - {x: 12, y: -20}
+        - {x: 12, y: 27}
+        - {x: 11, y: 28}
+    - name: sa_man1_22
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 28}
+        - {x: -11, y: -32}
+        - {x: 12, y: -32}
+        - {x: 12, y: 14}
+        - {x: 7, y: 28}
+    - name: sa_man1_23
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 28}
+        - {x: -12, y: 13}
+        - {x: -12, y: -32}
+        - {x: 1, y: -32}
+        - {x: 11, y: -27}
+        - {x: 11, y: 27}
+        - {x: 8, y: 28}
     outline: []
   spritePackingTag: 
   userData: 
