@@ -136,7 +136,7 @@ public class Character : MonoBehaviour
 		{
 			
 			this.transform.position = Vector3.MoveTowards(this.transform.position, leader.position, -speed * Time.deltaTime);
-			LookDirection( Vector3.MoveTowards(this.transform.position, leader.position, -speed * Time.deltaTime));
+			LookDirection(leader.position);
 			
 		}
 	
