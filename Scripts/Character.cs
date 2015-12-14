@@ -87,7 +87,7 @@ public class Character : MonoBehaviour
 		}
 		if (status == "Wander")
 		{
-			wanderTime = 10;
+			wanderTime = 1;
 			wanderPoint = CreateWanderPoint(this.transform.position);
 		}
 
