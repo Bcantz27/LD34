@@ -11,6 +11,7 @@ public class Character : MonoBehaviour
     public float influence;
     public float health;
     public float speed;
+	public float betray;
 
 	public float followDistance;
 	public float stepBackDistance;
@@ -29,7 +30,13 @@ public class Character : MonoBehaviour
 	public Vector3 wanderPoint;
 	public float randomRange;
 	public float wanderTime;
+	public float runAwayTime;
 	public float restTime;
+	public float despawnTime;
+
+	public float restReset;
+	public float wanderReset;
+	public float runAwayReset;
 
 	public ViewDirection animationDirection;
 	public bool fixedRotation;
@@ -37,6 +44,10 @@ public class Character : MonoBehaviour
 	public float animationSpeed;
 
 	public bool standing;
+	public bool swing;
+	public int swingStep;
+	public float swingTime;
+	public float swingForce;
 
 	private Vector3 oldPos;
 
@@ -49,6 +60,13 @@ public class Character : MonoBehaviour
 	public bool keepAggerssion;
 
 	public GameObject killBy;
+	public GameObject Weapon;
+	public GameObject hitBox;
+	public float hitForce;
+	public float dmg;
+	public float startAttackDistance;
+
+	private bool layout;
 
     public enum ClanType : int
     { 
@@ -65,22 +83,30 @@ public class Character : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
+		if (dmg == 0)
+		{
+			dmg = 1;
+		}
         sprite = new List<Sprite>(Resources.LoadAll<Sprite>("Images/" + sheetName));
 
 		followDistance = Random.Range(2f, 6f);
-		stepBackDistance = Random.Range(1f, followDistance);
-
+		stepBackDistance = 1.5f;
+		safeDistance = Random.Range(8f, 20f);
 		joinDistance = Random.Range(0f, 10f);
-		if (joinDistance < 0.5f)
+		if (joinDistance < 1.0f)
 		{
 			isLeader = true;
 		}
+
+		wanderReset = Random.Range(8f, 60f);
+		restReset = Random.Range(2f, 10f);
+		runAwayReset = Random.Range(10f, 40f);
 
 
 		if (leader == null && !isLeader)
 		{
 			if (GameObject.FindGameObjectsWithTag("Character").Length > 0)
-			{ 
+			{
 				foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Character"))
 				{
 					if (obj.GetComponent<Character>() != null)
@@ -93,7 +119,7 @@ public class Character : MonoBehaviour
 								leader = obj.transform;
 							}
 							else
-							{ 
+							{
 								float distanceLeader = Vector3.Distance(this.transform.position, leader.transform.position);
 								float distanceMaybeLeader = Vector3.Distance(this.transform.position, obj.transform.position);
 								if (distanceMaybeLeader < distanceLeader)
@@ -118,6 +144,17 @@ public class Character : MonoBehaviour
 				status = "Follow";
 			}
 		}
+		else if(leader != null)
+		{
+			if (leader.GetComponent<Character>() != null)
+			{
+				influence = leader.GetComponent<Character>().health;
+			}
+			else if (leader.GetComponent<Player>() != null)
+			{
+				influence = leader.GetComponent<Player>().health;
+			}
+		}
 		if (string.IsNullOrEmpty(status))
 		{
 			status = "Wander";
@@ -137,8 +174,14 @@ public class Character : MonoBehaviour
 		if (health <= 0 && killBy != null)
 		{
 			GetComponent<Rigidbody>().freezeRotation = false;
+			
 			status = "Dead";
 			standing = true;
+			if (!layout)
+			{
+				this.transform.localEulerAngles = new Vector3(90, this.transform.localEulerAngles.y, this.transform.localEulerAngles.z);
+				layout = true;
+			}
 		}
         switch (status)
         { 
@@ -154,6 +197,15 @@ public class Character : MonoBehaviour
                 break;
 			case "RunAway":
 				RunAway();
+				if (runAwayTime > 0)
+				{
+					runAwayTime -= Time.deltaTime;
+				}
+				else
+				{
+					runAwayTime = runAwayReset;
+					status = "Wander";
+				}
 				break;
 			case "Wander":
 				Wander();
@@ -161,12 +213,82 @@ public class Character : MonoBehaviour
 				{
 					wanderPoint = CreateWanderPoint(this.transform.position);
 				}
+				if (this.isLeader)
+				{
+					GameObject[] otherCharacters = GameObject.FindGameObjectsWithTag("Character");
+					foreach (GameObject other in otherCharacters)
+					{
+						if (!other.transform.Equals(this.transform))
+						{
+							if (other.GetComponent<Character>() != null)
+							{
+								if (other.transform.GetComponent<Character>().isLeader)
+								{
+									float distance = Vector3.Distance(transform.position, other.transform.position);
+									if (distance < startAttackDistance)
+									{
+										int deicide = Random.Range(0, 100);
+										if (deicide == 0)
+										{
+											target = other.transform;
+											status = "Attack";
+											break;
+										}
+									}
+								}
+							}
+						}
+					}
+
+				}
+				else
+				{
+					GameObject[] otherCharacters = GameObject.FindGameObjectsWithTag("Character");
+					foreach (GameObject other in otherCharacters)
+					{
+						if (!other.transform.Equals(this.transform))
+						{
+							if (other.GetComponent<Character>() != null)
+							{
+								if (other.transform.GetComponent<Character>().isLeader)
+								{
+									float distance = Vector3.Distance(transform.position, other.transform.position);
+									if (distance < startAttackDistance)
+									{
+										int deicide = Random.Range(0, 100);
+										if (deicide == 0)
+										{
+											leader = other.transform;
+											status = "Follow";
+											break;
+										}
+									}
+								}
+							}
+						}
+					}
+					int becomeLeader = Random.Range(0, 2000);
+					if (becomeLeader == 0)
+					{
+						isLeader = true;
+					}
+				}
 				break;
 			case "Attack":
 				Attack();
 				break;
 			case "Dead":
-
+				Color characterColor = this.spriteSheet.color;
+				characterColor.a -= Time.deltaTime * 0.1f;
+				this.spriteSheet.color = characterColor;
+				if (despawnTime > 0)
+				{
+					despawnTime -= Time.deltaTime;
+				}
+				else
+				{
+					GameObject.Destroy(gameObject);
+				}
 				break;
             default: //Idle
 
@@ -180,6 +302,80 @@ public class Character : MonoBehaviour
 		{
 			standing = false;
 		}
+
+		if (Weapon!=null)
+		{
+			if (status == "Attack")
+			{
+				if (!Weapon.GetComponent<MeshRenderer>().enabled)
+				{
+					Weapon.GetComponent<MeshRenderer>().enabled = true;
+				}
+			
+			}
+			else if(Weapon.GetComponent<MeshRenderer>().enabled)
+			{
+				Weapon.GetComponent<MeshRenderer>().enabled = false;
+			}
+		}
+
+		if (status != "Attack")
+		{
+			if (swing)
+			{
+				GetComponent<Rigidbody>().velocity = Vector3.zero;
+				transform.localEulerAngles = Vector3.zero;
+				swing = false;
+				swingStep = 0;
+				swingTime = 0.1f;
+			}
+		}
+		if (leader != null)
+		{
+			if (leader.GetComponent<Character>() != null)
+			{
+				if (leader.GetComponent<Character>().status == "Attack")
+				{
+					target = leader.GetComponent<Character>().target;
+					status = "Attack";
+				}
+			}
+			float distance = Vector3.Distance(leader.position, this.transform.position);
+			if (distance > 100)
+			{
+				leader = null;
+			}
+			else if (leader.Equals(transform) && leader != null)
+			{
+				leader = null;
+			}
+		}
+		if (target != null)
+		{	
+			float distance = Vector3.Distance(target.position, this.transform.position);
+			if (distance > 100)
+			{
+				target = null;
+			}
+			else if (target.Equals(transform))
+			{
+				target = null;
+			}
+			
+		}
+		if (runFrom != null)
+		{
+			float distance = Vector3.Distance(runFrom.position, this.transform.position);
+			if (distance > 100)
+			{
+				runFrom = null;
+			}
+			else if (runFrom.Equals(transform))
+			{
+				runFrom = null;
+			}
+			
+		}
 		Animations();
 		oldPos = this.transform.position;
 
@@ -192,44 +388,83 @@ public class Character : MonoBehaviour
 		{
 			if (leader != null)
 			{
-				if (leader.GetComponent<Character>().health > 0)
+				if (leader.GetComponent<Character>() != null)
 				{
-					float distance = Vector3.Distance(this.transform.position, leader.position);
-					influence += (leader.GetComponent<Character>().health / influence) / distance;
-					clan = leader.GetComponent<Character>().clan;
-					if (!keepAggerssion)
+					if (leader.GetComponent<Character>().health > 0)
 					{
-						aggerssion = leader.GetComponent<Character>().aggerssion;
+						float distance = Vector3.Distance(this.transform.position, leader.position);
+						influence += ((leader.GetComponent<Character>().health / influence) / distance);
+						influence -= betray;
+						clan = leader.GetComponent<Character>().clan;
+						if (!keepAggerssion)
+						{
+							aggerssion = leader.GetComponent<Character>().aggerssion;
+						}
+					}
+					else
+					{
+
+						influence = 0;
+						clan = ClanType.Neutral;
+						int deicide = Random.Range(0, 10);
+						switch (deicide)
+						{
+							case 0:
+								status = "Wander";
+								leader = null;
+								break;
+							case 1:
+								status = "RunAway";
+								runFrom = leader.GetComponent<Character>().killBy.transform;
+								leader = null;
+								break;
+							default:
+								status = "Follow";
+								if (leader.GetComponent<Character>().killBy.GetComponent<Player>() == null)
+								{
+									if (leader.GetComponent<Character>().killBy.GetComponent<Character>().leader == null)
+									{
+										leader = leader.GetComponent<Character>().killBy.transform;
+										leader.GetComponent<Character>().isLeader = true;
+									}
+									else if (leader.GetComponent<Character>().killBy.transform.GetComponent<Character>().leader != null)
+									{
+										leader = leader.GetComponent<Character>().killBy.transform.GetComponent<Character>().leader;
+									}
+								}
+								else
+								{
+									status = "Wander";
+								}
+								break;
+						}
+
+
 					}
 				}
-				else
+				else if (leader.GetComponent<Player>() != null)
 				{
-					
-					influence = 0;
-					clan = ClanType.Neutral;
-					int deicide = Random.Range(0, 2);
-					switch (deicide)
-					{ 
-						case 0:
-							status = "Wander";
-							leader = null;
-							break;
-						case 1:
-							status = "RunAway";
-							runFrom = leader.GetComponent<Character>().killBy.transform;
-							leader = null;
-							break;
-						case 2:
-							status = "Follow";
-							leader = leader.GetComponent<Character>().killBy.transform;
-							break;
-						default:
-							status = "Wander";
-							leader = null;
-							break;
+					if (leader.GetComponent<Player>().health > 0)
+					{
+						float distance = Vector3.Distance(this.transform.position, leader.position);
+						influence += ((leader.GetComponent<Player>().health / influence) / distance);
+						influence -= betray;
+						//clan = leader.GetComponent<Player>().clan;
+						if (!keepAggerssion)
+						{
+							aggerssion = (Aggerssion)Random.Range(-1,1);
+							keepAggerssion = true;
+						}
 					}
-					
-					
+				}
+
+				if (influence < 0)
+				{
+					target = leader;
+					influence = 0;
+					status = "Attack";
+					betray = 0;
+					leader = null;
 				}
 			}
 			else
@@ -263,27 +498,101 @@ public class Character : MonoBehaviour
 		}
 	}
 
+	public void TookDmg(GameObject attacker)
+	{
+		if (attacker.GetComponent<Character>() != null || attacker.GetComponent<Player>() != null)
+		{
+			if (leader != null)
+			{
+				if (attacker.transform.Equals(leader.transform))
+				{
+					betray += 1;
+				}
+				else
+				{
+					if (Random.Range(0, 4) == 0)
+					{
+						status = "RunAway";
+						runFrom = attacker.transform;
+					}
+					else
+					{
+						status = "Attack";
+						target = attacker.transform;
+					}
+				}
+			}
+			else if (isLeader)
+			{
+				if (Random.Range(0, 10) == 0)
+				{
+					status = "RunAway";
+					runFrom = attacker.transform;
+				}
+				else
+				{
+					status = "Attack";
+					target = attacker.transform;
+				}
+			}
+			else
+			{
+				int deicide = Random.Range(0, 10);
+				if (deicide == 0)
+				{
+					status = "RunAway";
+					runFrom = attacker.transform;
+				}
+				else if (deicide == 1)
+				{
+					status = "Follow";
+					leader = attacker.transform;
+					if (leader.GetComponent<Character>() != null)
+					{
+						influence = leader.GetComponent<Character>().health;
+					}
+					else
+					{
+						influence = leader.GetComponent<Player>().health;
+					}
+				}
+				else
+				{
+					status = "Attack";
+					target = attacker.transform;
+				}
+			}
+		}
+	}
+
 #region Movement and Animations
 
     public void Follow()
     {
-		float distance = Vector3.Distance(this.transform.position, leader.position);
+		if (leader != null)
+		{
+			float distance = Vector3.Distance(this.transform.position, leader.position);
 
-		if (distance > followDistance)
-		{
-			//Vector3 travelTo = Vector3.LerpUnclamped(this.transform.position, leader.position, speed * Time.deltaTime);
-			//travelTo.y = this.transform.position.y;
-			//this.transform.position = travelTo;
-			
-			this.transform.position = Vector3.MoveTowards(this.transform.position, leader.position, speed * Time.deltaTime);
-			LookDirection(Vector3.MoveTowards(this.transform.position, leader.position, speed * Time.deltaTime));
+			if (distance > followDistance)
+			{
+				//Vector3 travelTo = Vector3.LerpUnclamped(this.transform.position, leader.position, speed * Time.deltaTime);
+				//travelTo.y = this.transform.position.y;
+				//this.transform.position = travelTo;
+
+				this.transform.position = Vector3.MoveTowards(this.transform.position, leader.position, speed * Time.deltaTime);
+				LookDirection(Vector3.MoveTowards(this.transform.position, leader.position, speed * Time.deltaTime));
+			}
+			else if (distance < stepBackDistance)
+			{
+
+				this.transform.position = Vector3.MoveTowards(this.transform.position, leader.position, -speed * Time.deltaTime);
+				LookDirection(leader.position);
+
+			}
 		}
-		else if (distance < stepBackDistance)
+		else
 		{
-			
-			this.transform.position = Vector3.MoveTowards(this.transform.position, leader.position, -speed * Time.deltaTime);
-			LookDirection(leader.position);
-			
+			status = "Wander";
 		}
 	
     }
@@ -299,7 +608,7 @@ public class Character : MonoBehaviour
 
 				this.transform.position = Vector3.MoveTowards(this.transform.position, runFrom.position, -speed * Time.deltaTime);
 				LookDirection(Vector3.MoveTowards(this.transform.position, runFrom.position, -speed * Time.deltaTime));
-				CreateWanderPoint(this.transform.position);
+				wanderPoint = CreateWanderPoint(this.transform.position + runFrom.forward);
 
 			}
 			else if (distance >= safeDistance)
@@ -345,26 +654,140 @@ public class Character : MonoBehaviour
 			else 
 			{
 				standing = false;
-				wanderTime = 60;
-				restTime = 30;
+				wanderTime = wanderReset;
+				restTime = restReset;
 			}
 		}
 	}
 
 	public void Attack()
 	{
-		float distance = Vector3.Distance(this.transform.position, target.position);
-		if (distance > 2)
+		if (target != null)
 		{
-			//MoveTowards
-			this.transform.position = Vector3.MoveTowards(this.transform.position, target.position, speed * Time.deltaTime);
+			if (target.GetComponent<Character>() != null)
+			{
+				if (target.GetComponent<Character>().leader != null && target.GetComponent<Character>().status == "Dead")
+				{
+					if (target.GetComponent<Character>().leader.Equals(this.transform))
+					{
+						target = null;
+						status = "Wander";
+					}
+					else
+					{
+						//target = target.GetComponent<Character>().leader;
+					}
+				}
+				else if (target.GetComponent<Character>().status == "Dead")
+				{
+					if (Random.Range(0, 3) > 1)
+					{
+						target = null;
+						if (leader != null)
+						{
+							status = "Follow";
+						}
+						else
+						{
+							status = "Wander";
+						}
+					}
+				}
+			}
+			if (!swing && target != null)
+			{
+				float distance = Vector3.Distance(this.transform.position, target.position);
+				if (distance > 2)
+				{
+					//MoveTowards
+					this.transform.position = Vector3.MoveTowards(this.transform.position, target.position, speed * Time.deltaTime);
+				}
+				else
+				{
+					//Attack
+					swing = true;
+					swingStep = 0;
+				}
+				LookDirection(Vector3.MoveTowards(this.transform.position, target.position, speed * Time.deltaTime));
+			}
+			else if (target != null)
+			{
+				if (swingTime > 0)
+				{
+					swingTime -= Time.deltaTime;
+				}
+				else
+				{
+					if (swingStep == 0)
+					{
+						GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+						//GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY;
+						GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationZ;
+
+						if (transform.localEulerAngles.x < 35)
+						{
+							transform.localEulerAngles = new Vector3(transform.localEulerAngles.x + swingForce * Time.deltaTime / 2, transform.localEulerAngles.y, transform.localEulerAngles.z);
+						}
+						else
+						{
+							swingStep++;
+							swingTime = 0.1f;
+						}
+					}
+					else if (swingStep == 1)
+					{
+						if (transform.localEulerAngles.x > 315 || transform.localEulerAngles.x < 45)
+						{
+							transform.localEulerAngles = new Vector3(transform.localEulerAngles.x - swingForce * Time.deltaTime, transform.localEulerAngles.y, transform.localEulerAngles.z);
+						}
+						else
+						{
+
+							LookDirection(Vector3.MoveTowards(this.transform.position, target.position, speed * Time.deltaTime));
+
+							GameObject box = Instantiate(hitBox, this.transform.position, hitBox.transform.rotation) as GameObject;
+							box.GetComponent<PunchHitBox>().SetParent(this.gameObject);
+							box.GetComponent<Rigidbody>().AddForce(this.transform.forward * -hitForce);
+							swing = false;
+							swingStep = 0;
+							swingTime = 0.5f;
+							GetComponent<Rigidbody>().constraints = (RigidbodyConstraints)80;
+						}
+					}
+				}
+			}
+		}
+		else if (clan == ClanType.Evil)
+		{ 
+			GameObject[] otherCharacters = GameObject.FindGameObjectsWithTag("Character");
+			foreach (GameObject other in otherCharacters)
+			{
+				if (!other.transform.Equals(this.transform))
+				{
+					if (other.GetComponent<Character>() != null)
+					{
+						if (other.transform.GetComponent<Character>().isLeader)
+						{
+							float distance = Vector3.Distance(transform.position, other.transform.position);
+							if (distance < startAttackDistance)
+							{
+								int deicide = Random.Range(0, 10);
+								if (deicide == 0)
+								{
+									target = other.transform;
+									status = "Attack";
+									break;
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 		else
-		{ 
-			//Attack
-
+		{
+			status = "Wander";
 		}
-		LookDirection(Vector3.MoveTowards(this.transform.position, target.position, speed * Time.deltaTime));
 	}
 
 	public Vector3 CreateWanderPoint(Vector3 area)
@@ -379,10 +802,11 @@ public class Character : MonoBehaviour
 
 	public void LookDirection(Vector3 target)
 	{
-		
+
 		this.transform.LookAt(target);
 		rotateTest = this.transform.localEulerAngles;
 
+		GetComponent<Rigidbody>().maxAngularVelocity = 0;
 		//this.transform.localEulerAngles = new Vector3(this.transform.localEulerAngles.x, this.transform.localEulerAngles.y-180, this.transform.localEulerAngles.z);
 		this.transform.localEulerAngles = new Vector3(0, this.transform.localEulerAngles.y - 180, 0);
 
@@ -399,6 +823,7 @@ public class Character : MonoBehaviour
 			{
 				//Front
 				setDirection(ViewDirection.Front);
+				spriteSheet.flipX = false;
 			}
 			else if (rotVal >= 45 && rotVal <= 135) // Right Side
 			{
@@ -414,6 +839,7 @@ public class Character : MonoBehaviour
 			{
 				//Back
 				setDirection(ViewDirection.Back);
+				spriteSheet.flipX = false;
 			}
 		}
 		AnimationLoop(animationDirection);
@@ -465,7 +891,7 @@ public class Character : MonoBehaviour
 			{
 				animationString += "0";
 			}
-			else if (currentSprite.EndsWith("0"))
+			else if (currentSprite.EndsWith("0") || currentSprite.EndsWith("0Attack"))
 			{
 				animationString += "1";
 			}
@@ -474,7 +900,10 @@ public class Character : MonoBehaviour
 				animationString += "0";
 			}
 
-			
+			if (status == "Attack")
+			{
+				animationString += "Attack";
+			}
 
 			bool didBreak = false;
 			//Debug.Log(animationString);

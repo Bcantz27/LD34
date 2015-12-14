@@ -89,6 +89,7 @@ public class Player : MonoBehaviour
 			{
 				handLeft.GetComponent<HandScript>().punch = true;
 				GameObject hitbox = Instantiate(punchHitBox as Object, Camera.main.transform.position, punchHitBox.transform.rotation) as GameObject;
+				hitbox.GetComponent<PunchHitBox>().SetParent(this.gameObject);
 				hitbox.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * punchForce);
 			}
 		}
@@ -99,6 +100,7 @@ public class Player : MonoBehaviour
 			{
 				handRight.GetComponent<HandScript>().punch = true;
 				GameObject hitbox = Instantiate(punchHitBox as Object, Camera.main.transform.position, punchHitBox.transform.rotation) as GameObject;
+				hitbox.GetComponent<PunchHitBox>().SetParent(this.gameObject);
 				hitbox.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * punchForce);
 			}
 		}
@@ -167,6 +169,10 @@ public class Player : MonoBehaviour
                 //bounceForceApplied = true;
             }
 			GetComponent<Rigidbody>().AddForce(new Vector3(0, -400, 0));
+		}
+		if(collision.collider.tag == "HitBox")
+		{
+			GetComponent<Rigidbody>().AddForce(Vector3.up * (jump / 2));
 		}
 	}
 }

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 615e04183d3a75742a194a00556e8247
-timeCreated: 1449994480
+timeCreated: 1450066773
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,24 +10,24 @@ TextureImporter:
     21300006: npc_man0_SStand1
     21300008: npc_man0_BStand0
     21300010: npc_man0_BStand1
-    21300012: npc_man0_6
-    21300014: npc_man0_7
-    21300016: npc_man0_8
-    21300018: npc_man0_9
-    21300020: npc_man0_10
-    21300022: npc_man0_11
+    21300012: npc_man0_FStand0Attack
+    21300014: npc_man0_FStand1Attack
+    21300016: npc_man0_SStand0Attack
+    21300018: npc_man0_SStand1Attack
+    21300020: npc_man0_BStand0Attack
+    21300022: npc_man0_BStand1Attack
     21300024: npc_man0_FWalk0
     21300026: npc_man0_FWalk1
     21300028: npc_man0_SWalk0
     21300030: npc_man0_SWalk1
     21300032: npc_man0_BWalk0
     21300034: npc_man0_BWalk1
-    21300036: npc_man0_18
-    21300038: npc_man0_19
-    21300040: npc_man0_20
-    21300042: npc_man0_21
-    21300044: npc_man0_22
-    21300046: npc_man0_23
+    21300036: npc_man0_FWalk0Attack
+    21300038: npc_man0_FWalk1Attack
+    21300040: npc_man0_SWalk0Attack
+    21300042: npc_man0_SWalk1Attack
+    21300044: npc_man0_BWalk0Attack
+    21300046: npc_man0_BWalk1Attack
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -180,7 +180,7 @@ TextureImporter:
         - {x: 12, y: -32}
         - {x: 12, y: 13}
         - {x: 9, y: 23}
-    - name: npc_man0_6
+    - name: npc_man0_FStand0Attack
       rect:
         serializedVersion: 2
         x: 192
@@ -188,7 +188,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -9, y: 28}
@@ -198,7 +198,7 @@ TextureImporter:
         - {x: 16, y: -5}
         - {x: 16, y: 5}
         - {x: 7, y: 28}
-    - name: npc_man0_7
+    - name: npc_man0_FStand1Attack
       rect:
         serializedVersion: 2
         x: 224
@@ -206,7 +206,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -12, y: 28}
@@ -215,7 +215,7 @@ TextureImporter:
         - {x: 16, y: -11}
         - {x: 16, y: 7}
         - {x: 7, y: 28}
-    - name: npc_man0_8
+    - name: npc_man0_SStand0Attack
       rect:
         serializedVersion: 2
         x: 256
@@ -223,7 +223,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -7, y: 28}
@@ -233,7 +233,7 @@ TextureImporter:
         - {x: 12, y: -20}
         - {x: 12, y: 25}
         - {x: 6, y: 28}
-    - name: npc_man0_9
+    - name: npc_man0_SStand1Attack
       rect:
         serializedVersion: 2
         x: 288
@@ -241,7 +241,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -8, y: 28}
@@ -251,7 +251,7 @@ TextureImporter:
         - {x: 12, y: -15}
         - {x: 12, y: 27}
         - {x: 6, y: 28}
-    - name: npc_man0_10
+    - name: npc_man0_BStand0Attack
       rect:
         serializedVersion: 2
         x: 320
@@ -259,7 +259,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -10, y: 28}
@@ -269,7 +269,7 @@ TextureImporter:
         - {x: 12, y: -32}
         - {x: 12, y: 27}
         - {x: 9, y: 28}
-    - name: npc_man0_11
+    - name: npc_man0_BStand1Attack
       rect:
         serializedVersion: 2
         x: 352
@@ -277,7 +277,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -9, y: 28}
@@ -398,7 +398,7 @@ TextureImporter:
         - {x: 11, y: -27}
         - {x: 11, y: 25}
         - {x: 9, y: 28}
-    - name: npc_man0_18
+    - name: npc_man0_FWalk0Attack
       rect:
         serializedVersion: 2
         x: 192
@@ -406,7 +406,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -11, y: 28}
@@ -415,7 +415,7 @@ TextureImporter:
         - {x: 16, y: -26}
         - {x: 16, y: 10}
         - {x: 10, y: 28}
-    - name: npc_man0_19
+    - name: npc_man0_FWalk1Attack
       rect:
         serializedVersion: 2
         x: 224
@@ -423,7 +423,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -9, y: 28}
@@ -433,7 +433,7 @@ TextureImporter:
         - {x: 16, y: -15}
         - {x: 16, y: 14}
         - {x: 9, y: 28}
-    - name: npc_man0_20
+    - name: npc_man0_SWalk0Attack
       rect:
         serializedVersion: 2
         x: 256
@@ -441,7 +441,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -10, y: 28}
@@ -450,7 +450,7 @@ TextureImporter:
         - {x: 14, y: -32}
         - {x: 14, y: 27}
         - {x: 11, y: 28}
-    - name: npc_man0_21
+    - name: npc_man0_SWalk1Attack
       rect:
         serializedVersion: 2
         x: 288
@@ -458,7 +458,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -7, y: 28}
@@ -468,7 +468,7 @@ TextureImporter:
         - {x: 12, y: -20}
         - {x: 12, y: 25}
         - {x: 6, y: 28}
-    - name: npc_man0_22
+    - name: npc_man0_BWalk0Attack
       rect:
         serializedVersion: 2
         x: 320
@@ -476,7 +476,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -13, y: 28}
@@ -486,7 +486,7 @@ TextureImporter:
         - {x: 12, y: -32}
         - {x: 12, y: 15}
         - {x: 7, y: 28}
-    - name: npc_man0_23
+    - name: npc_man0_BWalk1Attack
       rect:
         serializedVersion: 2
         x: 352
@@ -494,7 +494,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -12, y: 28}
