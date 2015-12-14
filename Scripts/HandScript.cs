@@ -23,6 +23,8 @@ public class HandScript : MonoBehaviour
 	public Vector3 punchPostion;
 	public Vector3 punchScale;
 
+	public bool fistUp;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -32,9 +34,18 @@ public class HandScript : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if (punch)
+		if (fistUp)
 		{
-			Punch();
+			spriteRend.enabled = true;
+			if (punch)
+			{
+				Punch();
+			}
+		}
+		else
+		{
+			punch = false;
+			spriteRend.enabled = false;
 		}
 	}
 
