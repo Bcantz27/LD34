@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class Player : MonoBehaviour 
 {
+	public float health = 10;
 	public float speed = 10;
 	public float jump = 300;
 	public float runSpeed = 15;
@@ -19,15 +20,23 @@ public class Player : MonoBehaviour
 
 	public GameObject punchHitBox;
 	public float punchForce;
+	public float distToGround;
+
+	public float dmg;
 
 	// Use this for initialization
 	void Start () 
     {
 		enegry = 100;
 		savedSpeed = speed;
+		distToGround = this.GetComponent<Collider>().bounds.extents.y;
 		//Physics.IgnoreCollision(handLeft.GetComponent<Collider>(), transform.GetComponent<Collider>(),true);
 		//Physics.IgnoreCollision(handRight.GetComponent<Collider>(), transform.GetComponent<Collider>(), true);
 		//Physics.IgnoreCollision(handLeft.GetComponent<Collider>(), handRight.GetComponent<Collider>(), true);
+		if (dmg == 0)
+		{
+			dmg = 1;
+		}
 	}
 	
 	// Update is called once per frame
@@ -69,14 +78,14 @@ public class Player : MonoBehaviour
 				GetComponent<Rigidbody>().velocity += right * Time.deltaTime * speed;
 			}
 		}
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.Space)&& IsGrounded())
 		{
 			GetComponent<Rigidbody>().AddForce(transform.up*jump);
 		}
 
 		if (Input.GetMouseButtonDown(0))
 		{
-			if (!handLeft.GetComponent<HandScript>().punch)
+			if (!handLeft.GetComponent<HandScript>().punch && handRight.GetComponent<HandScript>().fistUp)
 			{
 				handLeft.GetComponent<HandScript>().punch = true;
 				GameObject hitbox = Instantiate(punchHitBox as Object, Camera.main.transform.position, punchHitBox.transform.rotation) as GameObject;
@@ -86,12 +95,18 @@ public class Player : MonoBehaviour
 
 		if (Input.GetMouseButtonDown(1))
 		{
-			if (!handRight.GetComponent<HandScript>().punch)
+			if (!handRight.GetComponent<HandScript>().punch && handLeft.GetComponent<HandScript>().fistUp)
 			{
 				handRight.GetComponent<HandScript>().punch = true;
 				GameObject hitbox = Instantiate(punchHitBox as Object, Camera.main.transform.position, punchHitBox.transform.rotation) as GameObject;
 				hitbox.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * punchForce);
 			}
+		}
+
+		if (Input.GetKeyDown(KeyCode.X))
+		{
+			handRight.GetComponent<HandScript>().fistUp = !handRight.GetComponent<HandScript>().fistUp;
+			handLeft.GetComponent<HandScript>().fistUp = !handLeft.GetComponent<HandScript>().fistUp;
 		}
 		
 		//Vector3 cameraAngles = camera.transform.localEulerAngles;
@@ -127,6 +142,11 @@ public class Player : MonoBehaviour
 		{
 			return 0;
 		}
+	}
+
+	public bool IsGrounded()
+	{
+		return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
 	}
 
 	void OnCollisionEnter(Collision collision)
