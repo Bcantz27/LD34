@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 36af3c7dd7e421c4f9698863653a0684
-timeCreated: 1449993944
+timeCreated: 1450142701
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,24 +10,24 @@ TextureImporter:
     21300006: sa_man1_SStand1
     21300008: sa_man1_BStand0
     21300010: sa_man1_BStand1
-    21300012: sa_man1_6
-    21300014: sa_man1_7
-    21300016: sa_man1_8
-    21300018: sa_man1_9
-    21300020: sa_man1_10
-    21300022: sa_man1_11
+    21300012: sa_man1_FStand0Attack
+    21300014: sa_man1_FStand1Attack
+    21300016: sa_man1_SStand0Attack
+    21300018: sa_man1_SStand1Attack
+    21300020: sa_man1_BStand0Attack
+    21300022: sa_man1_BStand1Attack
     21300024: sa_man1_FWalk0
     21300026: sa_man1_FWalk1
     21300028: sa_man1_SWalk0
     21300030: sa_man1_SWalk1
     21300032: sa_man1_BWalk0
     21300034: sa_man1_BWalk1
-    21300036: sa_man1_18
-    21300038: sa_man1_19
-    21300040: sa_man1_20
-    21300042: sa_man1_21
-    21300044: sa_man1_22
-    21300046: sa_man1_23
+    21300036: sa_man1_FWalk0Attack
+    21300038: sa_man1_FWalk1Attack
+    21300040: sa_man1_SWalk0Attack
+    21300042: sa_man1_SWalk1Attack
+    21300044: sa_man1_BWalk0Attack
+    21300046: sa_man1_BWalk1Attack
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -180,7 +180,7 @@ TextureImporter:
         - {x: 12, y: -32}
         - {x: 12, y: 14}
         - {x: 9, y: 23}
-    - name: sa_man1_6
+    - name: sa_man1_FStand0Attack
       rect:
         serializedVersion: 2
         x: 192
@@ -188,7 +188,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -6, y: 28}
@@ -199,7 +199,7 @@ TextureImporter:
         - {x: 16, y: -11}
         - {x: 16, y: 7}
         - {x: 8, y: 28}
-    - name: sa_man1_7
+    - name: sa_man1_FStand1Attack
       rect:
         serializedVersion: 2
         x: 224
@@ -207,7 +207,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 9, y: 23}
@@ -219,7 +219,7 @@ TextureImporter:
         - {x: 12, y: -30}
         - {x: 16, y: -3}
         - {x: 16, y: 6}
-    - name: sa_man1_8
+    - name: sa_man1_SStand0Attack
       rect:
         serializedVersion: 2
         x: 256
@@ -227,7 +227,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -8, y: 28}
@@ -237,7 +237,7 @@ TextureImporter:
         - {x: 12, y: -20}
         - {x: 12, y: 27}
         - {x: 11, y: 28}
-    - name: sa_man1_9
+    - name: sa_man1_SStand1Attack
       rect:
         serializedVersion: 2
         x: 288
@@ -245,7 +245,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -5, y: 28}
@@ -255,7 +255,7 @@ TextureImporter:
         - {x: 12, y: -6}
         - {x: 12, y: 22}
         - {x: 8, y: 28}
-    - name: sa_man1_10
+    - name: sa_man1_BStand0Attack
       rect:
         serializedVersion: 2
         x: 320
@@ -263,7 +263,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 5, y: 28}
@@ -275,7 +275,7 @@ TextureImporter:
         - {x: 12, y: -32}
         - {x: 12, y: 12}
         - {x: 9, y: 23}
-    - name: sa_man1_11
+    - name: sa_man1_BStand1Attack
       rect:
         serializedVersion: 2
         x: 352
@@ -283,7 +283,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 5, y: 28}
@@ -403,7 +403,7 @@ TextureImporter:
         - {x: 11, y: -27}
         - {x: 11, y: 27}
         - {x: 8, y: 28}
-    - name: sa_man1_18
+    - name: sa_man1_FWalk0Attack
       rect:
         serializedVersion: 2
         x: 192
@@ -411,7 +411,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 8, y: 28}
@@ -423,7 +423,7 @@ TextureImporter:
         - {x: 12, y: -30}
         - {x: 16, y: -7}
         - {x: 16, y: 7}
-    - name: sa_man1_19
+    - name: sa_man1_FWalk1Attack
       rect:
         serializedVersion: 2
         x: 224
@@ -431,7 +431,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 8, y: 28}
@@ -443,7 +443,7 @@ TextureImporter:
         - {x: 16, y: -15}
         - {x: 16, y: 14}
         - {x: 11, y: 24}
-    - name: sa_man1_20
+    - name: sa_man1_SWalk0Attack
       rect:
         serializedVersion: 2
         x: 256
@@ -451,7 +451,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -10, y: 28}
@@ -460,7 +460,7 @@ TextureImporter:
         - {x: 14, y: -32}
         - {x: 14, y: 26}
         - {x: 10, y: 28}
-    - name: sa_man1_21
+    - name: sa_man1_SWalk1Attack
       rect:
         serializedVersion: 2
         x: 288
@@ -468,7 +468,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -8, y: 28}
@@ -478,7 +478,7 @@ TextureImporter:
         - {x: 12, y: -20}
         - {x: 12, y: 27}
         - {x: 11, y: 28}
-    - name: sa_man1_22
+    - name: sa_man1_BWalk0Attack
       rect:
         serializedVersion: 2
         x: 320
@@ -486,7 +486,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -11, y: 28}
@@ -494,7 +494,7 @@ TextureImporter:
         - {x: 12, y: -32}
         - {x: 12, y: 14}
         - {x: 7, y: 28}
-    - name: sa_man1_23
+    - name: sa_man1_BWalk1Attack
       rect:
         serializedVersion: 2
         x: 352
@@ -502,7 +502,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -9, y: 28}

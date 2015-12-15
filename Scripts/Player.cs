@@ -22,9 +22,13 @@ public class Player : MonoBehaviour
 	public float punchForce;
 	public float distToGround;
 
+	public bool canMove;
+
 	public float dmg;
 
 	public List<Transform> followers=new List<Transform>();
+	string guiTexts;
+	string gameOver;
 
 	// Use this for initialization
 	void Start () 
@@ -51,77 +55,116 @@ public class Player : MonoBehaviour
 		//zTrans = Input.GetAxis("Vertical") * speed * Time.deltaTime;
 		//xTrans = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
 
-		float xF = minMove(camera.transform.forward.x,0.05f);
-		float zF = minMove(camera.transform.forward.z, 0.05f);
-
-		float xR = minMove(camera.transform.right.x, 0.05f);
-		float zR = minMove(camera.transform.right.z, 0.05f);
-
-
-		Vector3 forward = new Vector3(xF,0, zF);
-		Vector3 right = new Vector3(xR, 0, zR);
-
-		if (Mathf.Abs(GetComponent<Rigidbody>().velocity.x) < speed / 10 && Mathf.Abs(GetComponent<Rigidbody>().velocity.z) < speed / 10)
-		{ 
-			if (Input.GetKey(KeyCode.W))
-			{
-				GetComponent<Rigidbody>().velocity += forward * Time.deltaTime * speed;
-			}
-			if (Input.GetKey(KeyCode.S))
-			{
-				GetComponent<Rigidbody>().velocity -= forward * Time.deltaTime * speed;
-			}
-			if (Input.GetKey(KeyCode.A))
-			{
-				GetComponent<Rigidbody>().velocity -= right * Time.deltaTime * speed;
-			}
-			if (Input.GetKey(KeyCode.D))
-			{
-				GetComponent<Rigidbody>().velocity += right * Time.deltaTime * speed;
-			}
-		}
-		if (Input.GetKeyDown(KeyCode.Space)&& IsGrounded())
+		if (canMove)
 		{
-			GetComponent<Rigidbody>().AddForce(transform.up*jump);
-		}
 
-		if (Input.GetMouseButtonDown(0))
-		{
-			if (!handLeft.GetComponent<HandScript>().punch && handRight.GetComponent<HandScript>().fistUp)
+			float xF = minMove(camera.transform.forward.x, 0.05f);
+			float zF = minMove(camera.transform.forward.z, 0.05f);
+
+			float xR = minMove(camera.transform.right.x, 0.05f);
+			float zR = minMove(camera.transform.right.z, 0.05f);
+
+
+			Vector3 forward = new Vector3(xF, 0, zF);
+			Vector3 right = new Vector3(xR, 0, zR);
+
+			if (Mathf.Abs(GetComponent<Rigidbody>().velocity.x) < speed / 10 && Mathf.Abs(GetComponent<Rigidbody>().velocity.z) < speed / 10)
 			{
-				handLeft.GetComponent<HandScript>().punch = true;
-				GameObject hitbox = Instantiate(punchHitBox as Object, Camera.main.transform.position, punchHitBox.transform.rotation) as GameObject;
-				hitbox.GetComponent<PunchHitBox>().SetParent(this.gameObject);
-				hitbox.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * punchForce);
+				if (Input.GetKey(KeyCode.W))
+				{
+					GetComponent<Rigidbody>().velocity += forward * Time.deltaTime * speed;
+				}
+				if (Input.GetKey(KeyCode.S))
+				{
+					GetComponent<Rigidbody>().velocity -= forward * Time.deltaTime * speed;
+				}
+				if (Input.GetKey(KeyCode.A))
+				{
+					GetComponent<Rigidbody>().velocity -= right * Time.deltaTime * speed;
+				}
+				if (Input.GetKey(KeyCode.D))
+				{
+					GetComponent<Rigidbody>().velocity += right * Time.deltaTime * speed;
+				}
 			}
-		}
-
-		if (Input.GetMouseButtonDown(1))
-		{
-			if (!handRight.GetComponent<HandScript>().punch && handLeft.GetComponent<HandScript>().fistUp)
+			if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
 			{
-				handRight.GetComponent<HandScript>().punch = true;
-				GameObject hitbox = Instantiate(punchHitBox as Object, Camera.main.transform.position, punchHitBox.transform.rotation) as GameObject;
-				hitbox.GetComponent<PunchHitBox>().SetParent(this.gameObject);
-				hitbox.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * punchForce);
+				GetComponent<Rigidbody>().AddForce(transform.up * jump);
 			}
-		}
 
-		if (Input.GetKeyDown(KeyCode.X))
-		{
-			handRight.GetComponent<HandScript>().fistUp = !handRight.GetComponent<HandScript>().fistUp;
-			handLeft.GetComponent<HandScript>().fistUp = !handLeft.GetComponent<HandScript>().fistUp;
-		}
-		if (Input.GetKeyDown(KeyCode.Q))
-		{
-			CheckFollowers();
-			FollowersAttack(null);
-		}
-		
-		//Vector3 cameraAngles = camera.transform.localEulerAngles;
+			if (Input.GetMouseButtonDown(0))
+			{
+				if (!handLeft.GetComponent<HandScript>().punch && handRight.GetComponent<HandScript>().fistUp)
+				{
+					handLeft.GetComponent<HandScript>().punch = true;
+					GameObject hitbox = Instantiate(punchHitBox as Object, Camera.main.transform.position, punchHitBox.transform.rotation) as GameObject;
+					hitbox.GetComponent<PunchHitBox>().SetParent(this.gameObject);
+					hitbox.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * punchForce);
+				}
+			}
 
-		//transform.localEulerAngles = new Vector3(this.transform.localEulerAngles.x, cameraAngles.y, this.transform.localEulerAngles.z);
+			if (Input.GetMouseButtonDown(1))
+			{
+				if (!handRight.GetComponent<HandScript>().punch && handLeft.GetComponent<HandScript>().fistUp)
+				{
+					handRight.GetComponent<HandScript>().punch = true;
+					GameObject hitbox = Instantiate(punchHitBox as Object, Camera.main.transform.position, punchHitBox.transform.rotation) as GameObject;
+					hitbox.GetComponent<PunchHitBox>().SetParent(this.gameObject);
+					hitbox.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * punchForce);
+				}
+			}
+
+			if (Input.GetKeyDown(KeyCode.X))
+			{
+				handRight.GetComponent<HandScript>().fistUp = !handRight.GetComponent<HandScript>().fistUp;
+				handLeft.GetComponent<HandScript>().fistUp = !handLeft.GetComponent<HandScript>().fistUp;
+			}
+			if (Input.GetKeyDown(KeyCode.Q))
+			{
+				CheckFollowers();
+				FollowersAttack(null);
+			}
+
+			//Vector3 cameraAngles = camera.transform.localEulerAngles;
+
+			//transform.localEulerAngles = new Vector3(this.transform.localEulerAngles.x, cameraAngles.y, this.transform.localEulerAngles.z);
+		}
 		CheckFollowers();
+
+
+		guiTexts = "Health: " + health + "  Followers: " + followers.Count;
+
+		if (health <= 0)
+		{
+			GetComponent<Rigidbody>().freezeRotation = false;
+			handRight.GetComponent<HandScript>().fistUp = false;
+			handLeft.GetComponent<HandScript>().fistUp = false;
+			guiTexts = "";
+			gameOver = " Game Over";
+		}
+	}
+
+	void OnGUI()
+	{
+		int w = Screen.width;
+		int h = Screen.height;
+
+		GUIStyle style = new GUIStyle();
+		GUIStyle style2 = new GUIStyle();
+	
+		Rect rect = new Rect(w, 0, 0, 0);
+		style.alignment = TextAnchor.UpperRight;
+		style.fontSize = h / 10;
+		style.normal.textColor = new Color(0.0f, 0.0f, 0.5f, 1.0f);
+		
+		GUI.Label(rect, guiTexts, style);
+
+		Rect gameRect = new Rect(w / 2, h / 2, 0, 0);
+		style2.alignment = TextAnchor.MiddleCenter;
+		style2.fontSize = h / 4;
+		style2.normal.textColor = Color.black;
+
+		GUI.Label(gameRect, gameOver, style2);
 	}
 
 	public void CheckFollowers()

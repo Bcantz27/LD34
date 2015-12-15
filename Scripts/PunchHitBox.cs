@@ -95,6 +95,10 @@ public class PunchHitBox : MonoBehaviour
 			}
 
 		}
+		else if (other.transform.name == "Player")
+		{
+			other.transform.GetComponent<Player>().health -= hitboxParent.GetComponent<Character>().dmg;
+		}
 		if (other.collider.tag == "HitBox")
 		{
 			Physics.IgnoreCollision(GetComponent<Collider>(), other.collider);
