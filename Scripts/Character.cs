@@ -8,6 +8,8 @@ public class Character : MonoBehaviour
 	public List<Sprite> sprite;
     public string sheetName = "npc_man0";
 
+	public SpriteRenderer star;
+
     public float influence;
     public float health;
     public float speed;
@@ -27,6 +29,7 @@ public class Character : MonoBehaviour
 	public Transform target;
 	public Transform runFrom;
 
+	public Vector3 permentWanderPoint;
 	public Vector3 wanderPoint;
 	public float randomRange;
 	public float wanderTime;
@@ -67,6 +70,7 @@ public class Character : MonoBehaviour
 	public float startAttackDistance;
 
 	private bool layout;
+	private string currentSprite;
 
     public enum ClanType : int
     { 
@@ -83,11 +87,14 @@ public class Character : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
+		star.enabled = false;
 		if (dmg == 0)
 		{
 			dmg = 1;
 		}
         sprite = new List<Sprite>(Resources.LoadAll<Sprite>("Images/" + sheetName));
+		currentSprite = sprite[0].name;
+		spriteSheet.sprite = sprite[0];
 
 		followDistance = Random.Range(2f, 6f);
 		stepBackDistance = 1.5f;
@@ -171,17 +178,28 @@ public class Character : MonoBehaviour
 	// Update is called once per frame
     void Update()
     {
+		if (influence == Mathf.Infinity)
+		{
+			if (leader.GetComponent<Character>() != null)
+			{
+				influence = leader.GetComponent<Character>().health;
+			}
+			else if (leader.GetComponent<Player>() != null)
+			{
+				influence = leader.GetComponent<Player>().health;
+			}
+		}
 		if (health <= 0 && killBy != null)
 		{
 			GetComponent<Rigidbody>().freezeRotation = false;
 			
 			status = "Dead";
 			standing = true;
-			if (!layout)
-			{
+			//if (!layout)
+			//{
 				this.transform.localEulerAngles = new Vector3(90, this.transform.localEulerAngles.y, this.transform.localEulerAngles.z);
-				layout = true;
-			}
+			//	layout = true;
+			//}
 		}
         switch (status)
         { 
@@ -376,6 +394,18 @@ public class Character : MonoBehaviour
 			}
 			
 		}
+		if (isLeader)
+		{
+			star.enabled = true;
+			if (status == "Dead")
+			{
+				star.color = Color.black;
+			}
+		}
+		else
+		{
+			star.enabled = false;
+		}
 		Animations();
 		oldPos = this.transform.position;
 
@@ -420,16 +450,28 @@ public class Character : MonoBehaviour
 								break;
 							default:
 								status = "Follow";
-								if (leader.GetComponent<Character>().killBy.GetComponent<Player>() == null)
+								if (leader.GetComponent<Character>() != null)
 								{
-									if (leader.GetComponent<Character>().killBy.GetComponent<Character>().leader == null)
+									if (leader.GetComponent<Character>().killBy.GetComponent<Player>() == null)
+									{
+										if (leader.GetComponent<Character>().killBy.GetComponent<Character>().leader == null)
+										{
+											leader = leader.GetComponent<Character>().killBy.transform;
+											leader.GetComponent<Character>().isLeader = true;
+										}
+										else if (leader.GetComponent<Character>().killBy.transform.GetComponent<Character>().leader != null)
+										{
+											leader = leader.GetComponent<Character>().killBy.transform.GetComponent<Character>().leader;
+										}
+									}
+									else if (leader.GetComponent<Character>().killBy.GetComponent<Player>() != null)
 									{
 										leader = leader.GetComponent<Character>().killBy.transform;
-										leader.GetComponent<Character>().isLeader = true;
+										//leader.GetComponent<Player>().AddFollower(this.transform);
 									}
-									else if (leader.GetComponent<Character>().killBy.transform.GetComponent<Character>().leader != null)
+									else
 									{
-										leader = leader.GetComponent<Character>().killBy.transform.GetComponent<Character>().leader;
+										status = "Wander";
 									}
 								}
 								else
@@ -508,7 +550,26 @@ public class Character : MonoBehaviour
 				{
 					betray += 1;
 				}
-				else
+				else if (attacker.GetComponent<Character>() != null)
+				{
+					if (attacker.GetComponent<Character>().leader != null)
+					{
+						if (attacker.GetComponent<Character>().leader.Equals(leader))
+						{
+							if (betray > 2)
+							{
+								status = "Attack";
+								target = attacker.transform;
+							}
+						}
+					}
+					else
+					{
+						status = "Attack";
+						target = attacker.transform;
+					}
+				}
+				else  
 				{
 					if (Random.Range(0, 4) == 0)
 					{
@@ -563,6 +624,13 @@ public class Character : MonoBehaviour
 				}
 			}
 		}
+	}
+
+	public void SetSheetName(string newSheet)
+	{
+		sheetName = newSheet;
+		sprite.Clear();
+		sprite = new List<Sprite>(Resources.LoadAll<Sprite>("Images/" + sheetName));
 	}
 
 #region Movement and Animations
@@ -632,7 +700,14 @@ public class Character : MonoBehaviour
 
 			if (distance < 1)
 			{
-				wanderPoint = CreateWanderPoint(this.transform.position);
+				if (permentWanderPoint != null)
+				{
+					wanderPoint = CreateWanderPoint(permentWanderPoint);
+				}
+				else
+				{
+					wanderPoint = CreateWanderPoint(this.transform.position);
+				}
 			}
 			else
 			{
@@ -659,7 +734,25 @@ public class Character : MonoBehaviour
 			}
 		}
 	}
-
+	public void Attack(Transform enemy)
+	{
+		if (enemy != null)
+		{
+			status = "Attack";
+			target = enemy;
+		}
+		else
+		{
+			if (leader != null)
+			{
+				status = "Follow";
+			}
+			else 
+			{
+				status = "Wander";
+			}
+		}
+	}
 	public void Attack()
 	{
 		if (target != null)
@@ -786,7 +879,14 @@ public class Character : MonoBehaviour
 		}
 		else
 		{
-			status = "Wander";
+			if (leader != null)
+			{
+				status = " Follow";
+			}
+			else
+			{
+				status = "Wander";
+			}
 		}
 	}
 
@@ -848,7 +948,7 @@ public class Character : MonoBehaviour
 	public void AnimationLoop(ViewDirection direction)
 	{
 		string animationString = "";
-		string currentSprite = spriteSheet.sprite.name;
+		currentSprite = spriteSheet.sprite.name;
 		
 		//animationString += "man" + id+ "_";
 		if (animationTime > 0)

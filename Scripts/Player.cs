@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
 
 	public float dmg;
 
+	public List<Transform> followers=new List<Transform>();
+
 	// Use this for initialization
 	void Start () 
     {
@@ -110,10 +112,43 @@ public class Player : MonoBehaviour
 			handRight.GetComponent<HandScript>().fistUp = !handRight.GetComponent<HandScript>().fistUp;
 			handLeft.GetComponent<HandScript>().fistUp = !handLeft.GetComponent<HandScript>().fistUp;
 		}
+		if (Input.GetKeyDown(KeyCode.Q))
+		{
+			CheckFollowers();
+			FollowersAttack(null);
+		}
 		
 		//Vector3 cameraAngles = camera.transform.localEulerAngles;
 
 		//transform.localEulerAngles = new Vector3(this.transform.localEulerAngles.x, cameraAngles.y, this.transform.localEulerAngles.z);
+		CheckFollowers();
+	}
+
+	public void CheckFollowers()
+	{
+		followers.Clear();
+		GameObject[] characters = GameObject.FindGameObjectsWithTag("Character");
+		foreach(GameObject c in characters)
+		{
+			if (c.GetComponent<Character>() != null)
+			{
+				if (c.GetComponent<Character>().leader != null)
+				{
+					if(c.GetComponent<Character>().leader.Equals(this.transform) && c.GetComponent<Character>().health > 0)
+					{
+						followers.Add(c.transform);
+					}
+				}
+			}
+		}
+	}
+
+	public void FollowersAttack(Transform enemy)
+	{
+		foreach (Transform follower in followers)
+		{
+			follower.GetComponent<Character>().Attack(enemy);
+		}
 	}
 
 	private float minMove(float move, float min)

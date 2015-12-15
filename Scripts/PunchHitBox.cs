@@ -38,6 +38,13 @@ public class PunchHitBox : MonoBehaviour
 	}
 	void OnCollisionEnter(Collision other)
 	{
+		if (hitboxParent.name == "Player")
+		{
+			if (other.transform.tag == "Character")
+			{
+				hitboxParent.GetComponent<Player>().FollowersAttack(other.transform);
+			}
+		}
 		if (other.transform.tag == "Character")
 		{
 			if (hitboxParent.name == "Player")
