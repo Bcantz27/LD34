@@ -53,7 +53,7 @@ public class HandScript : MonoBehaviour
 	{
 		if (animationSpeed > 0)
 		{
-			animationSpeed -= Time.deltaTime;
+			animationSpeed -= 100 * Time.deltaTime;
 		}
 		else
 		{

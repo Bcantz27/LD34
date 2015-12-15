@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 887f5325e45576c4eb2178f8fecaf4c2
-timeCreated: 1449989435
+timeCreated: 1450070419
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,24 +10,24 @@ TextureImporter:
     21300006: npc_man1_SStand1
     21300008: npc_man1_BStand0
     21300010: npc_man1_BStand1
-    21300012: npc_man1_6
-    21300014: npc_man1_7
-    21300016: npc_man1_8
-    21300018: npc_man1_9
-    21300020: npc_man1_10
-    21300022: npc_man1_11
+    21300012: npc_man1_FStand0Attack
+    21300014: npc_man1_FStand1Attack
+    21300016: npc_man1_SStand0Attack
+    21300018: npc_man1_SStand1Attack
+    21300020: npc_man1_BStand0Attack
+    21300022: npc_man1_BStand1Attack
     21300024: npc_man1_FWalk0
     21300026: npc_man1_FWalk1
     21300028: npc_man1_SWalk0
     21300030: npc_man1_SWalk1
     21300032: npc_man1_BWalk0
     21300034: npc_man1_BWalk1
-    21300036: npc_man1_18
-    21300038: npc_man1_19
-    21300040: npc_man1_20
-    21300042: npc_man1_21
-    21300044: npc_man1_22
-    21300046: npc_man1_23
+    21300036: npc_man1_FWalk0Attack
+    21300038: npc_man1_FWalk1Attack
+    21300040: npc_man1_SWalk0Attack
+    21300042: npc_man1_SWalk1Attack
+    21300044: npc_man1_BWalk0Attack
+    21300046: npc_man1_BWalk1Attack
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -180,7 +180,7 @@ TextureImporter:
         - {x: 12, y: -32}
         - {x: 12, y: 14}
         - {x: 9, y: 23}
-    - name: npc_man1_6
+    - name: npc_man1_FStand0Attack
       rect:
         serializedVersion: 2
         x: 192
@@ -199,7 +199,7 @@ TextureImporter:
         - {x: 16, y: -11}
         - {x: 16, y: 7}
         - {x: 8, y: 28}
-    - name: npc_man1_7
+    - name: npc_man1_FStand1Attack
       rect:
         serializedVersion: 2
         x: 224
@@ -219,7 +219,7 @@ TextureImporter:
         - {x: 12, y: -30}
         - {x: 16, y: -3}
         - {x: 16, y: 6}
-    - name: npc_man1_8
+    - name: npc_man1_SStand0Attack
       rect:
         serializedVersion: 2
         x: 256
@@ -237,7 +237,7 @@ TextureImporter:
         - {x: 12, y: -20}
         - {x: 12, y: 27}
         - {x: 11, y: 28}
-    - name: npc_man1_9
+    - name: npc_man1_SStand1Attack
       rect:
         serializedVersion: 2
         x: 288
@@ -255,7 +255,7 @@ TextureImporter:
         - {x: 12, y: -6}
         - {x: 12, y: 22}
         - {x: 8, y: 28}
-    - name: npc_man1_10
+    - name: npc_man1_BStand0Attack
       rect:
         serializedVersion: 2
         x: 320
@@ -275,7 +275,7 @@ TextureImporter:
         - {x: 12, y: -32}
         - {x: 12, y: 12}
         - {x: 9, y: 23}
-    - name: npc_man1_11
+    - name: npc_man1_BStand1Attack
       rect:
         serializedVersion: 2
         x: 352
@@ -403,7 +403,7 @@ TextureImporter:
         - {x: 11, y: -27}
         - {x: 11, y: 27}
         - {x: 8, y: 28}
-    - name: npc_man1_18
+    - name: npc_man1_FWalk0Attack
       rect:
         serializedVersion: 2
         x: 192
@@ -423,7 +423,7 @@ TextureImporter:
         - {x: 12, y: -30}
         - {x: 16, y: -7}
         - {x: 16, y: 7}
-    - name: npc_man1_19
+    - name: npc_man1_FWalk1Attack
       rect:
         serializedVersion: 2
         x: 224
@@ -443,7 +443,7 @@ TextureImporter:
         - {x: 16, y: -15}
         - {x: 16, y: 14}
         - {x: 11, y: 24}
-    - name: npc_man1_20
+    - name: npc_man1_SWalk0Attack
       rect:
         serializedVersion: 2
         x: 256
@@ -460,7 +460,7 @@ TextureImporter:
         - {x: 14, y: -32}
         - {x: 14, y: 26}
         - {x: 10, y: 28}
-    - name: npc_man1_21
+    - name: npc_man1_SWalk1Attack
       rect:
         serializedVersion: 2
         x: 288
@@ -478,7 +478,7 @@ TextureImporter:
         - {x: 12, y: -20}
         - {x: 12, y: 27}
         - {x: 11, y: 28}
-    - name: npc_man1_22
+    - name: npc_man1_BWalk0Attack
       rect:
         serializedVersion: 2
         x: 320
@@ -496,7 +496,7 @@ TextureImporter:
         - {x: 12, y: -32}
         - {x: 12, y: 26}
         - {x: 5, y: 28}
-    - name: npc_man1_23
+    - name: npc_man1_BWalk1Attack
       rect:
         serializedVersion: 2
         x: 352
