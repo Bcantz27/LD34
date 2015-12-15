@@ -6,6 +6,8 @@ public class PunchHitBox : MonoBehaviour
 	public float timeTilDeath;
 	public GameObject hitboxParent;
 	public bool ignoreHappen;
+	public bool hit;
+	public AudioClip sound;
 
 	// Use this for initialization
 	void Start () 
@@ -29,6 +31,13 @@ public class PunchHitBox : MonoBehaviour
 		}
 		else
 		{
+			if (!GetComponent<AudioSource>().isPlaying)
+			{
+				GameObject.Destroy(gameObject);
+			}
+		}
+		if (hit && !GetComponent<AudioSource>().isPlaying)
+		{
 			GameObject.Destroy(gameObject);
 		}
 	}
@@ -49,6 +58,7 @@ public class PunchHitBox : MonoBehaviour
 		{
 			if (hitboxParent.name == "Player")
 			{
+				GetComponent<AudioSource>().PlayOneShot(sound);
 				float dmg = GameObject.Find("Player").GetComponent<Player>().dmg;
 				other.transform.GetComponent<Character>().health -= dmg;
 				other.transform.GetComponent<Character>().TookDmg(GameObject.Find("Player"));
@@ -72,6 +82,7 @@ public class PunchHitBox : MonoBehaviour
 			}
 			else if (hitboxParent.tag == "Character")
 			{
+				GetComponent<AudioSource>().PlayOneShot(sound);
 				float dmg = hitboxParent.GetComponent<Character>().dmg;
 				other.transform.GetComponent<Character>().health -= dmg;
 				other.transform.GetComponent<Character>().TookDmg(hitboxParent);
@@ -98,6 +109,7 @@ public class PunchHitBox : MonoBehaviour
 		else if (other.transform.name == "Player")
 		{
 			other.transform.GetComponent<Player>().health -= hitboxParent.GetComponent<Character>().dmg;
+			GetComponent<AudioSource>().PlayOneShot(sound);
 		}
 		if (other.collider.tag == "HitBox")
 		{
@@ -105,7 +117,8 @@ public class PunchHitBox : MonoBehaviour
 		}
 		else
 		{
-			GameObject.Destroy(gameObject);
+			hit = true;
+			GetComponent<Collider>().enabled = false;
 		}
 	}
 }

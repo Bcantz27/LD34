@@ -23,7 +23,7 @@ public class HandScript : MonoBehaviour
 	public Vector3 punchPostion;
 	public Vector3 punchScale;
 
-	public bool fistUp;
+	public bool fistUp = true;
 
 	// Use this for initialization
 	void Start () 

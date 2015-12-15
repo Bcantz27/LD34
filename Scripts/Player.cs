@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
 	public List<Transform> followers=new List<Transform>();
 	string guiTexts;
 	string gameOver;
+	string pressButton;
 
 	// Use this for initialization
 	void Start () 
@@ -141,6 +142,12 @@ public class Player : MonoBehaviour
 			handLeft.GetComponent<HandScript>().fistUp = false;
 			guiTexts = "";
 			gameOver = " Game Over";
+			pressButton = "press Y to restart";
+
+			if (Input.GetKeyDown(KeyCode.Y))
+			{
+				Application.LoadLevel("City");
+			}
 		}
 	}
 
@@ -151,6 +158,7 @@ public class Player : MonoBehaviour
 
 		GUIStyle style = new GUIStyle();
 		GUIStyle style2 = new GUIStyle();
+		GUIStyle style3 = new GUIStyle();
 	
 		Rect rect = new Rect(w, 0, 0, 0);
 		style.alignment = TextAnchor.UpperRight;
@@ -165,6 +173,14 @@ public class Player : MonoBehaviour
 		style2.normal.textColor = Color.black;
 
 		GUI.Label(gameRect, gameOver, style2);
+
+
+		Rect press = new Rect(w / 2, h / 2 - 100, 0, 0);
+		style3.alignment = TextAnchor.MiddleCenter;
+		style3.fontSize = h / 8;
+		style3.normal.textColor = Color.black;
+
+		GUI.Label(press, pressButton, style3);
 	}
 
 	public void CheckFollowers()

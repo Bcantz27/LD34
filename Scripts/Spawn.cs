@@ -15,6 +15,9 @@ public class Spawn : MonoBehaviour
 	public GameObject[][] spriteName;
 	public int group;
 	public int ind;
+
+	public float resetTime;
+	public float resetReset;
 	// Use this for initialization
 	void Start () 
 	{
@@ -71,8 +74,20 @@ public class Spawn : MonoBehaviour
 					characterTemp = null;
 				}
 				//characterTemp.GetComponent<Character>().permentWanderPoint = this.transform.position;
-				
+
 				currentSpawn++;
+			}
+		}
+		else
+		{
+			if (resetTime > 0)
+			{
+				resetTime -= Time.deltaTime;
+			}
+			else
+			{
+				currentSpawn = 0;
+				resetTime = resetReset;
 			}
 		}
 	}
