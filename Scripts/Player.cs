@@ -27,9 +27,11 @@ public class Player : MonoBehaviour
 	public float dmg;
 
 	public List<Transform> followers=new List<Transform>();
+
 	string guiTexts;
 	string gameOver;
-	string pressButton;
+	string citySim = "Clan Recruiting\nSimulator";
+	string pressButton = "Press X to fight";
 
 	// Use this for initialization
 	void Start () 
@@ -55,7 +57,11 @@ public class Player : MonoBehaviour
 		
 		//zTrans = Input.GetAxis("Vertical") * speed * Time.deltaTime;
 		//xTrans = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
-
+		if (Input.anyKey)
+		{
+			citySim = "";
+			pressButton = "";
+		}
 		if (canMove)
 		{
 
@@ -159,6 +165,7 @@ public class Player : MonoBehaviour
 		GUIStyle style = new GUIStyle();
 		GUIStyle style2 = new GUIStyle();
 		GUIStyle style3 = new GUIStyle();
+		GUIStyle style4 = new GUIStyle();
 	
 		Rect rect = new Rect(w, 0, 0, 0);
 		style.alignment = TextAnchor.UpperRight;
@@ -175,12 +182,19 @@ public class Player : MonoBehaviour
 		GUI.Label(gameRect, gameOver, style2);
 
 
-		Rect press = new Rect(w / 2, h / 2 - 100, 0, 0);
+		Rect press = new Rect(w / 2, h / 1.2f, 0, 0);
 		style3.alignment = TextAnchor.MiddleCenter;
 		style3.fontSize = h / 8;
 		style3.normal.textColor = Color.black;
 
 		GUI.Label(press, pressButton, style3);
+
+		Rect welcome = new Rect(w / 2, h / 2, 0, 0);
+		style4.alignment = TextAnchor.MiddleCenter;
+		style4.fontSize = h / 4;
+		style4.normal.textColor = Color.black;
+
+		GUI.Label(welcome, citySim, style4);
 	}
 
 	public void CheckFollowers()
