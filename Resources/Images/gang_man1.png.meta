@@ -1,33 +1,33 @@
 fileFormatVersion: 2
 guid: efb5f9019fd97274f9354fea2cf26e32
-timeCreated: 1450134715
+timeCreated: 1450141543
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: gang_man1_0
-    21300002: gang_man1_1
-    21300004: gang_man1_2
-    21300006: gang_man1_3
-    21300008: gang_man1_4
-    21300010: gang_man1_5
-    21300012: gang_man1_6
-    21300014: gang_man1_7
-    21300016: gang_man1_8
-    21300018: gang_man1_9
-    21300020: gang_man1_10
-    21300022: gang_man1_11
-    21300024: gang_man1_12
-    21300026: gang_man1_13
-    21300028: gang_man1_14
-    21300030: gang_man1_15
-    21300032: gang_man1_16
-    21300034: gang_man1_17
-    21300036: gang_man1_18
-    21300038: gang_man1_19
-    21300040: gang_man1_20
-    21300042: gang_man1_21
-    21300044: gang_man1_22
-    21300046: gang_man1_23
+    21300000: gang_man1_FStand0
+    21300002: gang_man1_FStand1
+    21300004: gang_man1_SStand0
+    21300006: gang_man1_SStand1
+    21300008: gang_man1_BStand0
+    21300010: gang_man1_BStand1
+    21300012: gang_man1_FStand0Attack
+    21300014: gang_man1_FStand1Attack
+    21300016: gang_man1_SStand0Attack
+    21300018: gang_man1_SStand1Attack
+    21300020: gang_man1_BStand0Attack
+    21300022: gang_man1_BStand1Attack
+    21300024: gang_man1_FWalk0
+    21300026: gang_man1_FWalk1
+    21300028: gang_man1_SWalk0
+    21300030: gang_man1_SWalk1
+    21300032: gang_man1_BWalk0
+    21300034: gang_man1_BWalk1
+    21300036: gang_man1_FWalk0Attack
+    21300038: gang_man1_FWalk1Attack
+    21300040: gang_man1_SWalk0Attack
+    21300042: gang_man1_SWalk1Attack
+    21300044: gang_man1_BWalk0Attack
+    21300046: gang_man1_BWalk1Attack
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -53,7 +53,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -74,7 +74,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: gang_man1_0
+    - name: gang_man1_FStand0
       rect:
         serializedVersion: 2
         x: 0
@@ -82,7 +82,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -9, y: 30}
@@ -92,7 +92,7 @@ TextureImporter:
         - {x: 15, y: 0}
         - {x: 15, y: 21}
         - {x: 9, y: 30}
-    - name: gang_man1_1
+    - name: gang_man1_FStand1
       rect:
         serializedVersion: 2
         x: 32
@@ -100,7 +100,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 7, y: 30}
@@ -111,7 +111,7 @@ TextureImporter:
         - {x: 13, y: -29}
         - {x: 15, y: -7}
         - {x: 15, y: 22}
-    - name: gang_man1_2
+    - name: gang_man1_SStand0
       rect:
         serializedVersion: 2
         x: 64
@@ -119,7 +119,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 9, y: 30}
@@ -129,7 +129,7 @@ TextureImporter:
         - {x: 13, y: -11}
         - {x: 15, y: -2}
         - {x: 15, y: 24}
-    - name: gang_man1_3
+    - name: gang_man1_SStand1
       rect:
         serializedVersion: 2
         x: 96
@@ -137,7 +137,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -9, y: 30}
@@ -146,7 +146,7 @@ TextureImporter:
         - {x: 15, y: 3}
         - {x: 15, y: 24}
         - {x: 9, y: 30}
-    - name: gang_man1_4
+    - name: gang_man1_BStand0
       rect:
         serializedVersion: 2
         x: 128
@@ -154,7 +154,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -13, y: 30}
@@ -163,7 +163,7 @@ TextureImporter:
         - {x: 12, y: -32}
         - {x: 12, y: 29}
         - {x: 8, y: 30}
-    - name: gang_man1_5
+    - name: gang_man1_BStand1
       rect:
         serializedVersion: 2
         x: 160
@@ -171,7 +171,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -11, y: 30}
@@ -181,7 +181,7 @@ TextureImporter:
         - {x: 12, y: -32}
         - {x: 12, y: 28}
         - {x: 7, y: 30}
-    - name: gang_man1_6
+    - name: gang_man1_FStand0Attack
       rect:
         serializedVersion: 2
         x: 192
@@ -189,7 +189,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -7, y: 30}
@@ -199,7 +199,7 @@ TextureImporter:
         - {x: 16, y: -5}
         - {x: 16, y: 21}
         - {x: 7, y: 30}
-    - name: gang_man1_7
+    - name: gang_man1_FStand1Attack
       rect:
         serializedVersion: 2
         x: 224
@@ -207,7 +207,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -9, y: 30}
@@ -217,7 +217,7 @@ TextureImporter:
         - {x: 16, y: -25}
         - {x: 16, y: 23}
         - {x: 8, y: 30}
-    - name: gang_man1_8
+    - name: gang_man1_SStand0Attack
       rect:
         serializedVersion: 2
         x: 256
@@ -225,7 +225,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -7, y: 30}
@@ -236,7 +236,7 @@ TextureImporter:
         - {x: 15, y: -16}
         - {x: 15, y: 25}
         - {x: 8, y: 30}
-    - name: gang_man1_9
+    - name: gang_man1_SStand1Attack
       rect:
         serializedVersion: 2
         x: 288
@@ -244,7 +244,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -4, y: 30}
@@ -255,7 +255,7 @@ TextureImporter:
         - {x: 15, y: -3}
         - {x: 15, y: 25}
         - {x: 10, y: 30}
-    - name: gang_man1_10
+    - name: gang_man1_BStand0Attack
       rect:
         serializedVersion: 2
         x: 320
@@ -263,7 +263,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -15, y: 30}
@@ -272,7 +272,7 @@ TextureImporter:
         - {x: 12, y: -32}
         - {x: 12, y: 29}
         - {x: 8, y: 30}
-    - name: gang_man1_11
+    - name: gang_man1_BStand1Attack
       rect:
         serializedVersion: 2
         x: 352
@@ -280,7 +280,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -11, y: 30}
@@ -290,7 +290,7 @@ TextureImporter:
         - {x: 12, y: -32}
         - {x: 12, y: 28}
         - {x: 7, y: 30}
-    - name: gang_man1_12
+    - name: gang_man1_FWalk0
       rect:
         serializedVersion: 2
         x: 0
@@ -298,7 +298,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -6, y: 30}
@@ -308,7 +308,7 @@ TextureImporter:
         - {x: 15, y: -32}
         - {x: 15, y: 27}
         - {x: 5, y: 30}
-    - name: gang_man1_13
+    - name: gang_man1_FWalk1
       rect:
         serializedVersion: 2
         x: 32
@@ -316,7 +316,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 8, y: 30}
@@ -327,7 +327,7 @@ TextureImporter:
         - {x: 15, y: -29}
         - {x: 16, y: -7}
         - {x: 16, y: 21}
-    - name: gang_man1_14
+    - name: gang_man1_SWalk0
       rect:
         serializedVersion: 2
         x: 64
@@ -335,7 +335,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -8, y: 30}
@@ -344,7 +344,7 @@ TextureImporter:
         - {x: 15, y: -32}
         - {x: 15, y: 28}
         - {x: 10, y: 30}
-    - name: gang_man1_15
+    - name: gang_man1_SWalk1
       rect:
         serializedVersion: 2
         x: 96
@@ -352,7 +352,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 9, y: 30}
@@ -362,7 +362,7 @@ TextureImporter:
         - {x: 13, y: -11}
         - {x: 15, y: -2}
         - {x: 15, y: 24}
-    - name: gang_man1_16
+    - name: gang_man1_BWalk0
       rect:
         serializedVersion: 2
         x: 128
@@ -370,7 +370,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -11, y: 30}
@@ -381,7 +381,7 @@ TextureImporter:
         - {x: 12, y: -32}
         - {x: 12, y: 28}
         - {x: 7, y: 30}
-    - name: gang_man1_17
+    - name: gang_man1_BWalk1
       rect:
         serializedVersion: 2
         x: 160
@@ -389,7 +389,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -6, y: 30}
@@ -400,7 +400,7 @@ TextureImporter:
         - {x: 11, y: -26}
         - {x: 11, y: 26}
         - {x: 6, y: 30}
-    - name: gang_man1_18
+    - name: gang_man1_FWalk0Attack
       rect:
         serializedVersion: 2
         x: 192
@@ -408,7 +408,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -11, y: 30}
@@ -418,7 +418,7 @@ TextureImporter:
         - {x: 16, y: -28}
         - {x: 16, y: 24}
         - {x: 14, y: 30}
-    - name: gang_man1_19
+    - name: gang_man1_FWalk1Attack
       rect:
         serializedVersion: 2
         x: 224
@@ -426,7 +426,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -6, y: 30}
@@ -436,7 +436,7 @@ TextureImporter:
         - {x: 16, y: -21}
         - {x: 16, y: 23}
         - {x: 12, y: 30}
-    - name: gang_man1_20
+    - name: gang_man1_SWalk0Attack
       rect:
         serializedVersion: 2
         x: 256
@@ -444,7 +444,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 10, y: 30}
@@ -456,7 +456,7 @@ TextureImporter:
         - {x: 13, y: -32}
         - {x: 15, y: -30}
         - {x: 15, y: 25}
-    - name: gang_man1_21
+    - name: gang_man1_SWalk1Attack
       rect:
         serializedVersion: 2
         x: 288
@@ -464,7 +464,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -7, y: 30}
@@ -475,7 +475,7 @@ TextureImporter:
         - {x: 15, y: -16}
         - {x: 15, y: 25}
         - {x: 8, y: 30}
-    - name: gang_man1_22
+    - name: gang_man1_BWalk0Attack
       rect:
         serializedVersion: 2
         x: 320
@@ -483,7 +483,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -13, y: 30}
@@ -494,7 +494,7 @@ TextureImporter:
         - {x: 12, y: -32}
         - {x: 12, y: 29}
         - {x: 10, y: 30}
-    - name: gang_man1_23
+    - name: gang_man1_BWalk1Attack
       rect:
         serializedVersion: 2
         x: 352
@@ -502,7 +502,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -16, y: 30}

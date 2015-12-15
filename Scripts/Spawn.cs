@@ -14,6 +14,7 @@ public class Spawn : MonoBehaviour
 	public List<GameObject> Characters;
 	public GameObject[][] spriteName;
 	public int group;
+	public int ind;
 	// Use this for initialization
 	void Start () 
 	{
@@ -49,11 +50,27 @@ public class Spawn : MonoBehaviour
 			else
 			{
 				pastTime = spawnRate;
-				int blah = Random.Range(0, 3);
-				GameObject character = spriteName[group][blah];
-				
-				GameObject characterTemp = Instantiate(character, transform.position, spawnObj.transform.rotation) as GameObject;
-				characterTemp.GetComponent<Character>().permentWanderPoint = this.transform.position;
+				ind = Random.Range(0, 3);
+
+				if (group == 0)
+				{
+					GameObject characterTemp = Instantiate(Characters[ind], transform.position, spawnObj.transform.rotation) as GameObject;
+					characterTemp.GetComponent<Character>().permentWanderPoint = this.transform.position;
+					characterTemp = null;
+				}
+				else if (group == 1)
+				{
+					GameObject characterTemp = Instantiate(Characters[3 + ind], transform.position, spawnObj.transform.rotation) as GameObject;
+					characterTemp.GetComponent<Character>().permentWanderPoint = this.transform.position;
+					characterTemp = null;
+				}
+				else if (group == 2)
+				{
+					GameObject characterTemp = Instantiate(Characters[6 + ind], transform.position, spawnObj.transform.rotation) as GameObject;
+					characterTemp.GetComponent<Character>().permentWanderPoint = this.transform.position;
+					characterTemp = null;
+				}
+				//characterTemp.GetComponent<Character>().permentWanderPoint = this.transform.position;
 				
 				currentSpawn++;
 			}
